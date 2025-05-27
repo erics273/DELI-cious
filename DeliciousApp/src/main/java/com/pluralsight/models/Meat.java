@@ -39,13 +39,13 @@ public class Meat implements Topping {
     public double getPrice() {
         // Adjust price only if it's extra
         double finalPrice = price;
-        if (this.isExtra && this.size == "4") {
+        if (this.isExtra && this.size.equals("4") ) {
             finalPrice += 0.50; // Add $0.50 if customer wants extra meat size 4".
         }
-        if (this.isExtra && this.size == "8") {
+        if (this.isExtra && this.size.equals("8")) {
             finalPrice += 1.00; // Add $1 if customer wants extra meat size 8".
         }
-        if (this.isExtra && this.size == "12") {
+        if (this.isExtra && this.size.equals( "12")) {
             finalPrice += 1.50; // Add $1.50 if customer wants extra meat size 12".
         }
 
