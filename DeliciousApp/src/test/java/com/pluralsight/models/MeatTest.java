@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MeatTest {
 
-//test the price of meat with extra added.
+    //test the price of meat with extra added.
     @Test
     public void testMeatPriceWithExtra() {
         //Arrange
@@ -14,9 +14,10 @@ class MeatTest {
         //Act
         double actualPrice = chicken.getPrice();
         //Assert
-        assertEquals(3, actualPrice , 0.01); // base + $1
+        assertEquals(3, actualPrice, 0.01); // base + $1
     }
-// Test the meat class without extra added.
+
+    // Test the meat class without extra added.
     @Test
     public void testMeatPriceWithoutExtra() {
         //Arrange
