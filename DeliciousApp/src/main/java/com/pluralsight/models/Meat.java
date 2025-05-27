@@ -1,6 +1,6 @@
 package com.pluralsight.models;
 
-public class Meat implements Topping {
+public class Meat{
 
     // Set attribute => what meat have!!
     private String size;
