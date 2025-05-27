@@ -7,7 +7,7 @@ public class Sandwich {
 private String size;
 private String breadType;
 private ArrayList<Meat>  meats;
-private ArrayList<Topping> toppings;
+private ArrayList<Toppable> toppings;
 
 // we are going to passing object here and create class for all those
 //

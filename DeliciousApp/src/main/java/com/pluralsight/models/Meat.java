@@ -1,16 +1,16 @@
 package com.pluralsight.models;
 
-public class Meat {
+public class Meat implements Toppable {
 
     // Set attribute => what meat have!!
-    private int size;
+    private String size;
     private String type;//name
     private double price;
     private boolean isExtra;
 
     //Generate constructor
 
-    public Meat(int size, boolean isExtra, double price, String type) {
+    public Meat(String size, boolean isExtra, double price, String type) {
         this.size = size;
         this.isExtra = isExtra;
         this.price = price;
@@ -20,11 +20,11 @@ public class Meat {
     //Generate getter and setter
 
 
-    public int getSize() {
+    public String getSize() {
         return size;
     }
 
-    public void setSize(int size) {
+    public void setSize(String size) {
         this.size = size;
     }
 
@@ -39,13 +39,13 @@ public class Meat {
     public double getPrice() {
         // Adjust price only if it's extra
         double finalPrice = price;
-        if (this.isExtra && this.size == 4) {
+        if (this.isExtra && this.size == "4") {
             finalPrice += 0.50; // Add $0.50 if customer wants extra meat size 4".
         }
-        if (this.isExtra && this.size == 8) {
+        if (this.isExtra && this.size == "8") {
             finalPrice += 1.00; // Add $1 if customer wants extra meat size 8".
         }
-        if (this.isExtra && this.size == 12) {
+        if (this.isExtra && this.size == "12") {
             finalPrice += 1.50; // Add $1.50 if customer wants extra meat size 12".
         }
 
