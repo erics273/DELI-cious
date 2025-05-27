@@ -1,11 +1,15 @@
-//package com.pluralsight.models;
-//
-//import java.util.ArrayList;
-//
-//public class Sandwich {
-//
-//private String breadType;
-//private ArrayList<>// we are going to passing object here and create class for all those
+package com.pluralsight.models;
+
+import java.util.ArrayList;
+
+public class Sandwich {
+
+private String size;
+private String breadType;
+private ArrayList<Meat>  meats;
+private ArrayList<Topping> toppings;
+
+// we are going to passing object here and create class for all those
 //
 //
 //
@@ -37,8 +41,8 @@
 //
 //
 //
-//}
-///* package com.pluralsight;
+}
+/* package com.pluralsight;
 //
 //public class Vehicle {
 //

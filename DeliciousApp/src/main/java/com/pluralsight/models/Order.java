@@ -1,10 +1,13 @@
 package com.pluralsight.models;
 
+import java.util.ArrayList;
+
 public class Order {
 
 //Saves all sandwiches, drinks, chips	A big tray where all our snacks go
-
-
+private ArrayList<Sandwich> sandwiches;
+private ArrayList<Chips> chips;
+private ArrayList<Drink> drinks;
 
 
 

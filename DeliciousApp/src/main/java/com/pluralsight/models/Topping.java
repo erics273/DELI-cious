@@ -1,9 +1,13 @@
 package com.pluralsight.models;
 
-public class Topping {
+public  abstract class Topping {
 
 //a category abstract /interface =. related to each other
     //create a class for each topping so that it will be easier ...
+
+//   public String getType();
+//    public double getPrice();
+//    public boolean isExtra();
 
 
 
