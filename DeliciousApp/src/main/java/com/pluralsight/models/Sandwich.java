@@ -11,6 +11,7 @@ public class Sandwich {
     private ArrayList<Meat> meats; //store meats
     private ArrayList<Cheese> cheeses; //store Cheeses
     private ArrayList<Topping> toppings;// store toppings
+    private ArrayList<Sauces> sauces; // list of sauces
     private double price;// keep track of total price
 
 
@@ -27,48 +28,80 @@ public class Sandwich {
         this.meats = new ArrayList<>();
         this.cheeses = new ArrayList<>();
         this.toppings = new ArrayList<>();
+        this.sauces = new ArrayList<>();
+
 
     }
 
-    //   - set base price based on size
+    // addMeat/Cheese/Topping/Sauce method:
 
-    // addMeat method:
-    // add meat(s)
-    public void addMeats(Meat item) {
-        meats.add(item);
+    public void addMeats(Meat meat) {
+        meats.add(meat);// add meat(s)
     }
 
-    // what is the price based on size and whether it's extra?
+    public void addCheese(Cheese cheese) {
+        cheeses.add(cheese);// add cheese(s)
+    }
+
+    public void addTopping(Topping topping) {
+        toppings.add(topping);// add topping(s)
+    }
+    public void addSauce(Sauces sauce) {
+        sauces.add(sauce);// add sauce(s)
+    }
+
+    // The price based on size and whether it's extra?
     public double getPrice() {
         double total = 0;
-        for (Meat m : meats) {//foreach(no need to know the index) item in the list called meats from the meat class store it in m.
-            total += m.getPrice();// Then get the price that is in m(Arraylist) => collect/Add the price only and  store it in a total box.
+
+        for (Meat meat : meats) {
+            total += meat.getPrice();
         }
+
+        for (Cheese cheese : cheeses) {
+            total += cheese.getPrice();
+        }
+
+        for (Topping topping : toppings) {
+            // if toppings also return price
+            total += topping.getPrice();
+        }
+
+        //Sauces are free, so not added to total
+
         return total;
     }
+    // getSummary method
+//   returns a string with sandwich details and total price
+    public String getSummary() {
+        StringBuilder summary = new StringBuilder();
+        summary.append("Sandwich Summary:\n");
+        summary.append("Bread: " + breadType + "\n");
+        summary.append("Size: " + size + "\n");
+        summary.append("Toasted: " + (isToasted ? "Yes" : "No") + "\n");
+
+        summary.append("Meats: ");
+        for (Meat m : meats)
+            summary.append(m.getType() + ", ");
+
+        summary.append("\nCheeses: ");
+        for (Cheese c : cheeses)
+            summary.append(c.getType() + ", ");
+
+        summary.append("\nToppings: ");
+        for (Topping t : toppings)
+            summary.append(t.getType() + ", ");
+
+        summary.append("\nSauces: ");
+        for (Sauces s : sauces)
+            summary.append(s.getType() + ", ");
+
+        summary.append("\nTotal Price: $" + String.format("%.2f", getPrice()));
+
+        return summary.toString();
+    }
+
 }
-
-// addCheese method:
-//   - add cheese(s)
-//   - add price depending on size and whether it's extra
-
-// addTopping method:
-//   - add topping(s)
-//   - no charge
-
-// addSauce method:
-//   - add sauce(s)
-//   - no charge
-
-// getPrice method:
-//   - return current total price
-
-// getSummary method:
-//   - return a string with all sandwich details and price
-
-//Makes a sandwich	You pick your sandwich and save what’s on it
-
-
 
 
 /*

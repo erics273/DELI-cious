@@ -1,13 +1,54 @@
 package com.pluralsight.models;
 
-public interface Topping {
-    // Abstract method to be implemented by all classes that represent sandwich toppings=> regular and prem- price calculate size => get price and summary
-    String getType();
+public class Topping {
+// Set attribute
+    //extra and size already the topping specifics classes include so no need to add it here
 
-    boolean isExtra();
+    private boolean isPremium;
+    private double price;
+    private String type;
 
-    double getPrice();
+    public Topping(boolean isPremium, double price) {
+        this.isPremium = isPremium;
+        this.price = price;
+    }
 
-    String getSize();
+    public boolean isPremium() {
+        return isPremium;
+    }
 
+    public void setPremium(boolean premium) {
+        isPremium = premium;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    // Static helper method to determine if a topping is premium
+    public static boolean isPremiumTopping(Object topping) {//judging based on type rather than relying on internal data.
+        return topping instanceof Meat || topping instanceof Cheese;
+
+    }
+    public void isRegular(Topping topping) {
+        if (!topping.isPremium()) {
+            System.out.println("You choose regular! " + topping.getType() + "topping no charge");
+        }
+
+    }
 }
+
+
+
