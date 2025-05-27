@@ -44,7 +44,8 @@ public class Topping {
     }
     public void isRegular(Topping topping) {
         if (!topping.isPremium()) {
-            System.out.println("You choose regular! " + topping.getType() + "topping no charge");
+            System.out.println("You choose regular! " + topping.getType() + " " + "topping no charge");
+            this.price = 0;
         }
 
     }
