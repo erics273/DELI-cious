@@ -2,24 +2,24 @@ package com.pluralsight.models;
 
 public class Drink {
 
+    //Set attribute
+
     private String size;
     private double price;
+    private String type;
 
+    //Generate constructor
 
-    public Drink(String size, double price) {
+    public Drink(String size, String type) {
         this.size = size;
-        this.price = price;
+        this.type = type;
+
+        this.price = calculatePriceFromSize(size); //Automatically set price based on size
     }
 
-    public String getSize(String size) {
-        return size;
-    }
+    //Custom Method
 
-    public void setSize() {
-        this.size = size;
-    }
-
-    public double getPrice(String size) {
+    public double calculatePriceFromSize(String size) {
         return switch (size.toLowerCase()) {
             case "s" -> 2.00;
             case "m" -> 2.50;
@@ -28,9 +28,32 @@ public class Drink {
         };
     }
 
+    //Generate getter and setter.
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize() {
+        this.size = size;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
 }
 /*List<MyItem> items = List.of(item1, item2, item3);
 

@@ -8,7 +8,7 @@ class ChipsTest {
     @Test
     public void testChipsConstructorAndGetPrice() {
         // Arrange
-        Chips chips = new Chips(0);
+        Chips chips = new Chips( "Chill");
 
         // Act
         double actualPrice = chips.getPrice();
@@ -20,7 +20,7 @@ class ChipsTest {
     @Test
     public void testSetPrice() {
         // Arrange
-        Chips chips = new Chips(0);
+        Chips chips = new Chips( "Baked");
 
         // Act
         chips.setPrice(1.75);

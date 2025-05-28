@@ -46,6 +46,7 @@ public class Sandwich {
     public void addTopping(Topping topping) {
         toppings.add(topping);// add topping(s)
     }
+
     public void addSauce(Sauces sauce) {
         sauces.add(sauce);// add sauce(s)
     }
@@ -71,6 +72,7 @@ public class Sandwich {
 
         return total;
     }
+
     // getSummary method
 //   returns a string with sandwich details and total price
     public String getSummary() {
