@@ -4,11 +4,44 @@ import java.util.ArrayList;
 
 public class Order {
 
+    // create List for order items (sandwiches, drinks, and chips)
     //Saves all sandwiches, drinks, chips	A big tray where all our snacks go
+
     private ArrayList<Sandwich> sandwiches;
     private ArrayList<Chips> chips;
     private ArrayList<Drink> drinks;
+    private double price; // store total price
 
+        // constructor:
+        //   - initialize the class properties
+
+    public Order() {
+        this.sandwiches = new ArrayList<>();
+        this.chips = new ArrayList<>();
+        this.drinks = new ArrayList<>();
+        this.price = price;
+    }
+
+
+    // addSandwich method:
+        //   - add sandwich to list
+public void addSandwich(Sandwich sandwich){
+        sandwiches.add(sandwich);
+}
+        // addDrink method:
+        //   - add drink to list
+
+        // addChips method:
+        //   - add chips to list
+
+        // getTotal method:
+        //   - return total price of order
+
+        // getSandwiches, getDrinks, getChips:
+        //   - return the orders items
+
+        // getOrderSummary method:
+        //   - return formatted string of all items and total
 
 }
 /*package com.pluralsight;
