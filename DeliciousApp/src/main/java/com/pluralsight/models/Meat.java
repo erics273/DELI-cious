@@ -10,7 +10,7 @@ public class Meat {
 
     //Generate constructor
 
-    public Meat(String size, boolean isExtra, double price, String type) {
+    public Meat(String size, boolean isExtra, String type) {
         this.size = size;
         this.isExtra = isExtra;
         this.price = price;

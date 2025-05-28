@@ -9,9 +9,13 @@ public class AddChips {
     public Chips getChips() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Would you like chips? (yes/no): ");
+        //Prompt user if they want to add chips.
+        System.out.print("Would you like chips?\n (yes(Y)/no(N)): ");
 
-        if (scanner.nextLine().equalsIgnoreCase("yes")) {
+        //Based on input if yes => we ask flavor
+        String choice = scanner.nextLine();
+
+        if (choice.equalsIgnoreCase("Y")) {
 
             System.out.print("Enter chip flavor: ");
             String flavor = scanner.nextLine();
@@ -20,6 +24,7 @@ public class AddChips {
 
             return myChips;
         }
+        // If they said "no", return nothing (null) — meaning no Chips was selected
         return null;
     }
 }

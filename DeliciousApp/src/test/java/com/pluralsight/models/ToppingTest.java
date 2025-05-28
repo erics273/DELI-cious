@@ -20,7 +20,7 @@ class ToppingTest {
     @Test
     void testIsPremiumToppingReturnsTrueForCheese() {
         // Arrange
-        Cheese cheese = new Cheese("4", "American",0,true); // Cheese extends Topping
+        Cheese cheese = new Cheese("4", "American",true); // Cheese extends Topping
 
         // Act
         boolean result = Topping.isPremiumTopping(cheese);
@@ -32,7 +32,7 @@ class ToppingTest {
     @Test
     void testIsPremiumToppingReturnsFalseForOtherTopping() {
         // Arrange
-        Topping lettuce = new Topping(false, 0.25);
+        Topping lettuce = new Topping(false);
 
         // Act
         boolean result = Topping.isPremiumTopping(lettuce);
@@ -44,7 +44,7 @@ class ToppingTest {
     @Test
     void testIsRegularPrintsMessageWhenToppingIsNotPremium() {
         // Arrange
-        Topping regularTopping = new Topping(false, 0);
+        Topping regularTopping = new Topping(false);
         regularTopping.setType("Lettuce");
 
         // Act

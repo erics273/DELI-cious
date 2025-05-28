@@ -76,11 +76,11 @@ public class Sandwich {
     // getSummary method
 //   returns a string with sandwich details and total price
     public String getSummary() {
-        StringBuilder summary = new StringBuilder();
-        summary.append("Sandwich Summary:\n");
-        summary.append("Bread: " + breadType + "\n");
-        summary.append("Size: " + size + "\n");
-        summary.append("Toasted: " + (isToasted ? "Yes" : "No") + "\n");
+        StringBuilder summary = new StringBuilder();//word-collecting basket
+        summary.append("Sandwich Summary:\n");//add words using append
+        summary.append("Bread: " + this.breadType + "\n");
+        summary.append("Size: " + this.size + "\n");
+        summary.append("Toasted: " + (this.isToasted ? "Yes" : "No") + "\n");
 
         summary.append("Meats: ");
         for (Meat m : meats)
@@ -98,29 +98,19 @@ public class Sandwich {
         for (Sauces s : sauces)
             summary.append(s.getType() + ", ");
 
-        summary.append("\nTotal Price: $" + String.format("%.2f", getPrice()));
+        // get the price of the sandwich
+        double price = getPrice();
 
-        return summary.toString();
+        // format the price to 2 decimal places
+        String formattedPrice = String.format("%.2f", price);
+
+        // add the total price to the summary text
+        summary.append("\nTotal Price: $" + formattedPrice);
+
+        //summary.append("\nTotal Price: $" + String.format("%.2f", getPrice()));
+
+        return summary.toString();//turn all the words into one readable sentence by using toString().
     }
 
 }
 
-
-/*
-
-    //Custom method  toString method show us error on mistake, make the code safe/clean, easy to read/understand when other want what my object is.
-    @Override
-    public String toString() {
-        return "Vehicle{" +
-                "vin : " + vin +
-                ", year : " + year +
-                ", make : " + make + '\'' +
-                ", model : " + model + '\'' +
-                ", type : " + type + '\'' +
-                ", color : " + color + '\'' +
-                ", odometer : " + odometer +
-                ", price : " + price +
-                '}';
-    }
-
-*/

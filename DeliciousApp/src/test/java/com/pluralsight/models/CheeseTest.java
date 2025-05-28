@@ -10,7 +10,7 @@ class CheeseTest {
     @Test
     public void testCheesePriceWithExtra() {
         //Arrange
-        Cheese cheddar = new Cheese("8", "Cheddar", 1.50, true );
+        Cheese cheddar = new Cheese("8", "Cheddar", true );
         //Act
         double actualPrice = cheddar.getPrice();
         //Assert
@@ -21,7 +21,7 @@ class CheeseTest {
     @Test
     public void testCheesePriceWithoutExtra() {
         //Arrange
-       Cheese american = new Cheese("4","American", 0.75, false);
+       Cheese american = new Cheese("4","American", false);
         //Act
         double actualPrice = american.getPrice();
         //Assert

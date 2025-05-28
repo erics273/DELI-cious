@@ -7,6 +7,7 @@ public class UserInterface {
     //Lets people type what they want	“Do you want bread?” “White or wheat?” any interaction with user goes here.
 //method to display Home scree
     public void homeScreen() {
+
         boolean exit = false;
 
         while (!exit) {
