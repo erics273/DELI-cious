@@ -4,24 +4,31 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-//Lets people type what they want	“Do you want bread?” “White or wheat?” any interaction with user goes here.
+    //Lets people type what they want	“Do you want bread?” “White or wheat?” any interaction with user goes here.
 //method to display Home scree
-    public void homeScreen(){
-        System.out.println("Select Option 1)New order \n 0) Exit ");
-        Scanner myScanner = new Scanner(System.in);
-        String choice = myScanner.nextLine();
+    public void homeScreen() {
+        boolean exit = false;
 
-        //if we are not doing math it's better to do string
+        while (!exit) {
+            System.out.println("Welcome to DELI-cious Sandwich Shop!");
+            System.out.println("Select Option\n 1)New order \n 0) Exit ");
+            System.out.print("Choose your option: ");
 
-        //switch will be applicable
-        switch(choice){
-            case "1":
-                System.out.println(" call order method here");
-                break;
-            case "0":
-                System.exit(0);
-            default:
-                System.out.println(" Invalid input. Try");// do a loop to ask again // need try catch
+            Scanner myScanner = new Scanner(System.in);
+            String choice = myScanner.nextLine();
+
+            //if we are not doing math it's better to do string
+
+            //switch will be applicable
+            switch (choice) {
+                case "1":
+                    System.out.println(" call order method here");
+                    break;
+                case "0":
+                    System.exit(0);
+                default:
+                    System.out.println(" Invalid input. Try");// do a loop to ask again // need try catch
+            }
         }
     }
 

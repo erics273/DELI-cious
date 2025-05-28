@@ -42,6 +42,7 @@ public class Topping {
         return topping instanceof Meat || topping instanceof Cheese;
 
     }
+
     public void isRegular(Topping topping) {
         if (!topping.isPremium()) {
             System.out.println("You choose regular! " + topping.getType() + " " + "topping no charge");

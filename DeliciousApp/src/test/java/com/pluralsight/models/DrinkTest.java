@@ -9,10 +9,10 @@ class DrinkTest {
     @Test
     public void testPriceBySize() {
         //Arrange
-        Drink myDrink = new Drink("L", 0);
+        Drink myDrink = new Drink("L", "diet coke");
 
         //Act
-        double actualPrice = myDrink.getPrice("l");
+        double actualPrice = myDrink.calculatePriceFromSize("l");
 
         //Assert
         assertEquals(3, actualPrice,0.01);
