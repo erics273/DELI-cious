@@ -11,7 +11,8 @@ public class Sandwich {
     private ArrayList<Meat> meats; //store meats
     private ArrayList<Cheese> cheeses; //store Cheeses
     private ArrayList<Topping> toppings;// store toppings
-    private ArrayList<Sauces> sauces; // list of sauces
+    private ArrayList<Sauces> sauces; // store sauces
+    private ArrayList<Sides> sides;
     private double price;// keep track of total price
 
 
@@ -29,6 +30,7 @@ public class Sandwich {
         this.cheeses = new ArrayList<>();
         this.toppings = new ArrayList<>();
         this.sauces = new ArrayList<>();
+        this.sides = new ArrayList<>();
 
 
     }
@@ -48,6 +50,9 @@ public class Sandwich {
     }
     public void addSauce(Sauces sauce) {
         sauces.add(sauce);// add sauce(s)
+    }
+    public void addSides(Sides side){
+        sides.add(side);
     }
 
     // The price based on size and whether it's extra?
@@ -74,30 +79,46 @@ public class Sandwich {
     // getSummary method
 //   returns a string with sandwich details and total price
     public String getSummary() {
+        // Use StringBuilder for efficient string concatenation
         StringBuilder summary = new StringBuilder();
+
+        // Start with a header
         summary.append("Sandwich Summary:\n");
+
+        // Add bread type, size, and toast preference
         summary.append("Bread: " + breadType + "\n");
         summary.append("Size: " + size + "\n");
         summary.append("Toasted: " + (isToasted ? "Yes" : "No") + "\n");
 
+        // List all meats in the sandwich
         summary.append("Meats: ");
         for (Meat m : meats)
             summary.append(m.getType() + ", ");
 
+        // List all cheeses in the sandwich
         summary.append("\nCheeses: ");
         for (Cheese c : cheeses)
             summary.append(c.getType() + ", ");
 
+        // List all regular or premium toppings
         summary.append("\nToppings: ");
         for (Topping t : toppings)
             summary.append(t.getType() + ", ");
 
+        // List all sauces (free)
         summary.append("\nSauces: ");
         for (Sauces s : sauces)
             summary.append(s.getType() + ", ");
 
+        // List all sides (free)
+        summary.append("\nSides: ");
+        for(Sides s : sides)
+            summary.append(s.getType() + ", ");
+
+        // Append the calculated total price, formatted to 2 decimal places
         summary.append("\nTotal Price: $" + String.format("%.2f", getPrice()));
 
+        // Convert the StringBuilder into a final string and return it
         return summary.toString();
     }
 
