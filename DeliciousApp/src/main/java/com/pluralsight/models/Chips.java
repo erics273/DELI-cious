@@ -2,22 +2,19 @@ package com.pluralsight.models;
 
 public class Chips {
 
-    private double price;
+    //Set attribute
+    private static final double PRICE = 1.50;// the price is fixed and set.
     private String flavor;
 
-
+    //Generate constructor
     public Chips(String flavor) {
 
-        this.price = price;
         this.flavor = flavor;
     }
 
+    //Generate getter and setter
     public double getPrice() {
-        return 1.50;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
+        return PRICE;
     }
 
     public String getFlavor() {
