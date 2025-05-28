@@ -10,7 +10,7 @@ class SandwichTest {
     public void testAddMeatAndGetPriceWithoutExtra() {
         // Arrange
         Sandwich sandwich = new Sandwich("white", "4", false);
-        Meat meat = new Meat("4", false, 1.50, "Ham");
+        Meat meat = new Meat("4", false,  "Ham");
 
         // Act
         sandwich.addMeats(meat);
@@ -24,7 +24,7 @@ class SandwichTest {
     public void testAddMeatAndGetPriceWithExtra_4inch() {
         // Arrange
         Sandwich sandwich = new Sandwich("white", "4", false);
-        Meat meat = new Meat("4", true, 1.50, "Turkey");
+        Meat meat = new Meat("4", true, "Turkey");
 
         // Act
         sandwich.addMeats(meat);
@@ -38,8 +38,8 @@ class SandwichTest {
     public void testAddMultipleMeatsWithAndWithoutExtra() {
         // Arrange
         Sandwich sandwich = new Sandwich("wheat", "8", true);
-        Meat meat1 = new Meat("8", true, 2.00, "Chicken");
-        Meat meat2 = new Meat("8", false, 1.50, "Ham");
+        Meat meat1 = new Meat("8", true,  "Chicken");
+        Meat meat2 = new Meat("8", false, "Ham");
 
         // Act
         sandwich.addMeats(meat1);

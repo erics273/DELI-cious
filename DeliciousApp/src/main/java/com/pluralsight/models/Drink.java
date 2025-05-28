@@ -21,10 +21,10 @@ public class Drink {
 
     public double calculatePriceFromSize(String size) {
         return switch (size.toLowerCase()) {
-            case "s" -> 2.00;
-            case "m" -> 2.50;
-            case "l" -> 3.00;
-            default -> 0;
+            case "s" -> this.price = 2.00;
+            case "m" -> this.price =2.50;
+            case "l" -> this.price = 3.00;
+            default -> this.price = 0;
         };
     }
 
@@ -34,8 +34,9 @@ public class Drink {
         return size;
     }
 
-    public void setSize() {
+    public void setSize(String size) {
         this.size = size;
+        this.price = calculatePriceFromSize(size); // Update price when size changes
     }
 
     public double getPrice() {

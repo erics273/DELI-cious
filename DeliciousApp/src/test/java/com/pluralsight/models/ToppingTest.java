@@ -8,7 +8,7 @@ class ToppingTest {
     @Test
     void testIsPremiumToppingReturnsTrueForMeat() {
         // Arrange
-        Meat meat= new Meat("8", true, 2, "Chicken"); // Meat extends Topping
+        Meat meat= new Meat("8", true,  "Chicken"); // Meat extends Topping
 
         // Act
         boolean result = Topping.isPremiumTopping(meat);
