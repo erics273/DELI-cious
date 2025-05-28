@@ -32,7 +32,6 @@ public class Sandwich {
         this.sauces = new ArrayList<>();
         this.sides = new ArrayList<>();
 
-
     }
 
     // addMeat/Cheese/Topping/Sauce method:
