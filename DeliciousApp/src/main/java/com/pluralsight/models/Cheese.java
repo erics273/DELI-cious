@@ -11,7 +11,7 @@ public class Cheese {
 
     //Generate constructor
 
-    public Cheese(String size, String type, double price, boolean isExtra) {
+    public Cheese(String size, String type, boolean isExtra) {
         this.size = size;
         this.type = type;
         this.price = price;

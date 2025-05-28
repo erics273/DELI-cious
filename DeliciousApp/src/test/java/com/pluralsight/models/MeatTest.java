@@ -10,7 +10,7 @@ class MeatTest {
     @Test
     public void testMeatPriceWithExtra() {
         //Arrange
-        Meat chicken = new Meat("8", true, 2, "Chicken");
+        Meat chicken = new Meat("8", true, "Chicken");
         //Act
         double actualPrice = chicken.getPrice();
         //Assert
@@ -21,7 +21,7 @@ class MeatTest {
     @Test
     public void testMeatPriceWithoutExtra() {
         //Arrange
-        Meat ham = new Meat("4", false, 1.00, "Ham");
+        Meat ham = new Meat("4", false,  "Ham");
         //Act
         double actualPrice = ham.getPrice();
         //Assert

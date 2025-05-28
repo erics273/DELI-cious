@@ -8,7 +8,7 @@ public class Topping {
     private double price;
     private String type;
 
-    public Topping(boolean isPremium, double price) {
+    public Topping(boolean isPremium) {
         this.isPremium = isPremium;
         this.price = price;
     }
