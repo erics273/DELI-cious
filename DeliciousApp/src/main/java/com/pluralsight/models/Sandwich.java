@@ -2,7 +2,7 @@ package com.pluralsight.models;
 
 import java.util.ArrayList;
 
-public class Sandwich {
+public class Sandwich implements OrderItem{
 
     //Set attribute for sandwich class
     private String breadType;// store bread type (white, wheat, rye, wrap)
@@ -66,6 +66,7 @@ public class Sandwich {
      */
 
     // The price based on size and whether it's extra?
+    @Override
     public double getPrice() {
 
         double totalPrice = 0.0;
@@ -106,6 +107,7 @@ public class Sandwich {
 
     // getSummary method
 //   returns a string with sandwich details and total price
+
     public String getSummary() {
 
         // Use StringBuilder for efficient string concatenation
@@ -156,6 +158,10 @@ public class Sandwich {
 
         return summary.toString();//turn all the words into one readable sentence by using toString() and return it.
 
+    }
+    @Override
+    public String getDescription() {
+        return getSummary();
     }
 }
 
