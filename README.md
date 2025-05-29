@@ -24,11 +24,11 @@ N/A
 ## Usage
 To use the application:
 
-Open your Java IDE (like IntelliJ or Eclipse) or use the terminal/command prompt.
+### Open your Java IDE (like IntelliJ or Eclipse) or use the terminal/command prompt.
 
-Navigate to the project folder.
+### Navigate to the project folder.
 
-Compile all Java files:
+### Compile all Java files:
 
 bash
 Copy
@@ -40,27 +40,11 @@ bash
 Copy
 Edit
 java YourMainClass
-Follow the prompts in the console to customize your sandwich.
 
-Example interaction:
+ ### Follow the prompts in the console to customize your sandwich.
 
-Choose bread (White/Wheat/Rye/Wrap)
-
-Enter size (4/8/12)
-
-Choose if toasted (yes/no)
-
-Enter meats (comma-separated) and choose if extra meat
-
-Add cheeses (looped prompt) with size and extra options
-
-Add regular toppings (comma-separated)
-
-Add sauces (comma-separated)
-
-Add sides (comma-separated)
-
-The sandwich will be constructed with your selections and ready to use in your program.
+### Example interaction: Choose bread (White/Wheat/Rye/Wrap), Enter size (4/8/12), Choose if toasted (yes/no), Enter meats (comma-separated), and choose if extra meat, Add cheeses (looped prompt) with size and extra options, Add regular toppings (comma-separated)
+Add sauces (comma-separated), add sides (comma-separated), The sandwich will be constructed with your selections and ready to use in your program.
 
 ## Screenshots
 (Optional: Add screenshots or GIFs here if you have them)
@@ -100,6 +84,6 @@ public Sandwich build() {
 }
 This method is a great demonstration of how to build a complex object through user input, conditionals, loops, and OOP principles.
 
-License
+## License
 N/A
 
