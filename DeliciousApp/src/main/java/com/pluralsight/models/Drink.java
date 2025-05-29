@@ -22,7 +22,7 @@ public class Drink {
     public double calculatePriceFromSize(String size) {
         return switch (size.toLowerCase()) {
             case "s" -> this.price = 2.00;
-            case "m" -> this.price =2.50;
+            case "m" -> this.price = 2.50;
             case "l" -> this.price = 3.00;
             default -> this.price = 0;
         };
@@ -53,6 +53,15 @@ public class Drink {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Drink{" +
+                "size='" + size + '\'' +
+                ", price=" + price +
+                ", type='" + type + '\'' +
+                '}';
     }
 
 }

@@ -7,7 +7,6 @@ public class Sauces {
 
     //Generate constructor
 
-
     public Sauces(String type) {
         this.type = type;
     }

@@ -18,7 +18,10 @@ public class Cheese {
         this.isExtra = isExtra;
     }
 
-    //generate getter and setter
+    public Cheese(String type) {
+        this.type = type;
+    }
+//generate getter and setter
 
     public String getType() {
         return type;
@@ -29,23 +32,34 @@ public class Cheese {
     }
 
     public double getPrice() {
+        return getBasePrice() + getExtraCharge();
+    }
 
-        // Adjust price only if it's extra
-        double finalPrice = this.price;
-        if (this.isExtra && this.size.equals("4")) {
-            if (!isExtra) return this.price = 0.75;
-            finalPrice += 0.30; // Add $0.30 if customer wants extra meat size 4".
+    private double getBasePrice() {
+        switch (size) {
+            case "4":
+                return 1.00;
+            case "8":
+                return 2.00;
+            case "12":
+                return 3.00;
+            default:
+                return 0.0;
         }
-        if (this.isExtra && this.size.equals("8")) {
-            if (!isExtra) return this.price = 1.50;
-            finalPrice += 0.60; // Add $0.60 if customer wants extra meat size 8".
-        }
-        if (this.isExtra && this.size.equals("12")) {
-            if (!isExtra) return this.price = 2.25;
-            finalPrice += 0.90; // Add $0.90 if customer wants extra meat size 12".
-        }
+    }
 
-        return finalPrice;
+    private double getExtraCharge() {
+        if (!isExtra) return 0.0;
+        switch (size) {
+            case "4":
+                return 0.50;
+            case "8":
+                return 1.00;
+            case "12":
+                return 1.50;
+            default:
+                return 0.0;
+        }
     }
 
     public void setPrice(double price) {
@@ -67,4 +81,14 @@ public class Cheese {
     public void setExtra(boolean extra) {
         isExtra = extra;
     }
+
+    @Override
+    public String toString() {
+        return "Cheese{" +
+                "size='" + size + '\'' +
+                ", isExtra=" + isExtra +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }
+

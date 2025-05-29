@@ -5,7 +5,6 @@ public class Meat {
     // Set attribute => what meat have!!
     private String size;
     private String type;//name
-    private double price;
     private boolean isExtra;
 
     //Generate constructor
@@ -13,12 +12,13 @@ public class Meat {
     public Meat(String size, boolean isExtra, String type) {
         this.size = size;
         this.isExtra = isExtra;
-        this.price = price;
         this.type = type;
     }
 
-    //Generate getter and setter
-
+    public Meat(String type) {
+        this.type = type;
+    }
+//Generate getter and setter
 
     public String getSize() {
         return size;
@@ -26,6 +26,7 @@ public class Meat {
 
     public void setSize(String size) {
         this.size = size;
+        //this.price = calculateBasePrice(size, this.isExtra); // recalc price if size changes
     }
 
     public String getType() {
@@ -37,31 +38,55 @@ public class Meat {
     }
 
     public double getPrice() {
+        return getBasePrice() + getExtraCharge();
+    }
+
+    public double getBasePrice() {
         // Adjust price only if it's extra
-        double finalPrice = price;
-        if (this.isExtra && this.size.equals("4")) {
-            finalPrice += 0.50; // Add $0.50 if customer wants extra meat size 4".
+        double basePrice = 0.0;
+
+        // Base price depends on size
+        switch (size) {
+            case "4": return 1.00;
+            case "8": return 2.00;
+            case "12": return 3.00;
+            default: return 0.0;
         }
-        if (this.isExtra && this.size.equals("8")) {
-            finalPrice += 1.00; // Add $1 if customer wants extra meat size 8".
+    }
+
+    // If extra, add additional cost depending on size
+    private double getExtraCharge() {
+        if (!isExtra) return 0.0;
+        switch (size) {
+            case "4":
+                return 0.50;
+            case "8":
+                return 1.00;
+            case "12":
+                return 1.50;
+            default:
+                return 0.0;
         }
-        if (this.isExtra && this.size.equals("12")) {
-            finalPrice += 1.50; // Add $1.50 if customer wants extra meat size 12".
-        }
-
-        return finalPrice;
-
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
 
-    public boolean isExtra() {
-        return isExtra;
-    }
-
-    public void setExtra(boolean extra) {
-        isExtra = extra;
-    }
+public boolean isExtra() {
+    return isExtra;
 }
+
+public void setExtra(boolean extra) {
+    isExtra = extra;
+    // this.price = calculateBasePrice(this.size, extra); // recalc price if extra changes
+}
+
+@Override
+public String toString() {
+    return "Meat{" +
+            "size='" + size + '\'' +
+            " is extra : " + isExtra +
+            ", price=" + getPrice() +
+            ", type='" + type + '\'' +
+            '}';
+}
+}
+

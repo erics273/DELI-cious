@@ -17,7 +17,7 @@ class SandwichTest {
         double total = sandwich.getPrice();
 
         // Assert
-        assertEquals(1.50, total, 0.01); // no extra charge
+        assertEquals(6.00, total, 0.01); // no extra charge
     }
 
     @Test
@@ -31,7 +31,7 @@ class SandwichTest {
         double total = sandwich.getPrice();
 
         // Assert
-        assertEquals(2.00, total, 0.01); // $1.50 + $0.50 extra
+        assertEquals(7.00, total, 0.01); // $5.50 + 1 + $0.50 extra
     }
 
     @Test
@@ -42,12 +42,12 @@ class SandwichTest {
         Meat meat2 = new Meat("8", false, "Ham");
 
         // Act
-        sandwich.addMeats(meat1);
-        sandwich.addMeats(meat2);
+        sandwich.addMeats(meat1);//10
+        sandwich.addMeats(meat2);//9
         double total = sandwich.getPrice();
 
         // Assert
-        assertEquals(4.50, total, 0.01); // $2.00 + $1.00 extra + $1.50
+        assertEquals(12.00, total, 0.01); // $7.00 + $1.00 extra + $2.00meat
     }
 
 }

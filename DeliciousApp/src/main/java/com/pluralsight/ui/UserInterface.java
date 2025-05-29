@@ -1,5 +1,7 @@
 package com.pluralsight.ui;
 
+import com.pluralsight.models.Order;
+
 import java.util.Scanner;
 
 public class UserInterface {
@@ -9,6 +11,7 @@ public class UserInterface {
     public void homeScreen() {
 
         boolean exit = false;
+        Order myOrder = new Order();
 
         while (!exit) {
             System.out.println("Welcome to DELI-cious Sandwich Shop!");
@@ -24,6 +27,8 @@ public class UserInterface {
             switch (choice) {
                 case "1":
                     System.out.println(" call order method here");
+                    HandleNewOrder newOrder = new HandleNewOrder();
+                    newOrder.startOrder();
                     break;
                 case "0":
                     System.exit(0);
