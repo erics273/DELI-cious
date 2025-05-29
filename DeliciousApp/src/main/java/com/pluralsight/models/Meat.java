@@ -15,8 +15,9 @@ public class Meat {
         this.type = type;
     }
 
-    public Meat(String type) {
+    public Meat(String type,String size) {
         this.type = type;
+        this.size = size;
     }
 //Generate getter and setter
 
@@ -46,7 +47,7 @@ public class Meat {
         double basePrice = 0.0;
 
         // Base price depends on size
-        switch (size) {
+        switch (this.size) {
             case "4": return 1.00;
             case "8": return 2.00;
             case "12": return 3.00;
@@ -57,7 +58,7 @@ public class Meat {
     // If extra, add additional cost depending on size
     private double getExtraCharge() {
         if (!isExtra) return 0.0;
-        switch (size) {
+        switch (this.size) {
             case "4":
                 return 0.50;
             case "8":

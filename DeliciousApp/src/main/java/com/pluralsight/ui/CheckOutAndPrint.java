@@ -15,8 +15,11 @@ public class CheckOutAndPrint {
         // Use StringBuilder to create the receipt text
         StringBuilder receipt = new StringBuilder();
 
-        // Add sandwich details to the receipt
-        receipt.append(sandwich.getSummary()).append("\n");
+        // Add sandwich details to the receipt if not null
+        if(sandwich !=null) {
+            receipt.append(sandwich.getSummary()).append("\n");
+            total += sandwich.getPrice();
+        }
 
         // If the customer ordered a drink, add it to the receipt and update total
         if (drink != null) {
