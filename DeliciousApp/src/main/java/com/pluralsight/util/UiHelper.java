@@ -1,5 +1,7 @@
 package com.pluralsight.util;
 
+import com.pluralsight.models.Sandwich;
+
 import java.util.Scanner;
 
 public class UiHelper {
@@ -62,4 +64,24 @@ public class UiHelper {
             System.out.println(" Invalid input. Please enter 'yes' or 'no'.");
         }
     }
+    //helper method to confirm the order summary and make sure if user want to continue or cancel
+    // Scanner help with user input check, and we are making sure it show sandwich
+    // This is a helper method to confirm if the user is happy with the sandwich so far.
+    private boolean confirmStep(Scanner scanner, Sandwich sandwich) {
+
+        // Print the current summary of the sandwich (bread, meat, cheese, etc.)
+        System.out.println("\n" + sandwich.getSummary());
+
+        // Ask the user if they like what they see.
+        System.out.print("Is this correct? Press \"Y\" to continue or anything else to cancel: ");
+
+        // Use the Scanner to read what the user types.
+        String input = scanner.nextLine();
+
+        // If the user typed Y or y, return true (they're happy!)
+        // Otherwise, return false (they want to cancel or change)
+        return input.equalsIgnoreCase("Y");
+        //if (!confirmStep(myScanner, sandwich)) return null;
+    }
+
 }

@@ -14,20 +14,30 @@ public class CustomizeSandwich {
         // Get bread and size
 
         //============================ BREAD ============================
-        System.out.print("Choose bread (White/Wheat/Rye/Wrap): ");
-        String bread = myScanner.nextLine().trim().toLowerCase();
+        String bread;
+        while (true) {
+            System.out.print("Choose bread (White/Wheat/Rye/Wrap): ");
+            bread = myScanner.nextLine().trim().toLowerCase();
+            if (bread.matches("white|wheat|rye|wrap")) break;
+            System.out.println("Invalid choice. Try again.");
+        }
 
-        System.out.print("Enter the size you want (4/8/12): ");
-        String sizeChoice = myScanner.nextLine();
+        String sizeChoice;
+        while (true) {
+            System.out.print("Enter the size you want (4/8/12): ");
+            sizeChoice = myScanner.nextLine().trim();
+            if (sizeChoice.matches("4|8|12")) break;
+            System.out.println("Invalid size. Try again.");
+        }
 
         // Ask if toasted
         boolean toasted = false;
         System.out.print("Would you like it toasted? Enter Y to toast: ");
-        String toastInput = myScanner.nextLine();
-        toasted = toastInput.equalsIgnoreCase("Y");
+        toasted = myScanner.nextLine().trim().equalsIgnoreCase("Y");
 
         // Create sandwich object
         Sandwich sandwich = new Sandwich(bread, sizeChoice, toasted);
+        if (!confirmStep(myScanner, sandwich)) return null;
 
         //validating and confirming the user choice
         System.out.println(sandwich.getSummary());
