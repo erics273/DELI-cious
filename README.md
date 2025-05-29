@@ -22,7 +22,7 @@ Installation
 N/A
 
 ## Usage
-To use the application:
+### To use the application:
 
 ### Open your Java IDE (like IntelliJ or Eclipse) or use the terminal/command prompt.
 
