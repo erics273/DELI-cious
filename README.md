@@ -1,5 +1,6 @@
 # DELI-cious
-Description
+
+## Description
 The motivation behind this project was to practice Java object-oriented programming and user input handling in a fun, interactive way.
 
 I built this app to see how much I have learned about creating Java applications that take user input from the console and build complex objects based on choices.
@@ -14,7 +15,7 @@ The app collects all inputs, creates the corresponding objects (Meat, Cheese, To
 
 The user can add multiple meats and cheeses, decide on extras, and skip optional ingredients easily.
 
-Table of Content
+## Table of Content
 N/A
 
 Installation
