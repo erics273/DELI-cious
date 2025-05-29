@@ -27,6 +27,14 @@ public class CustomizeSandwich {
         // Create sandwich object
         Sandwich sandwich = new Sandwich(bread, sizeChoice, toasted);
 
+        //validating and confirming the user choice
+        System.out.println(sandwich.getSummary());
+        System.out.println("Would you like to proceed? Press \"Y\" to continue : ");
+        String validInput = myScanner.nextLine();
+        if(!validInput.equalsIgnoreCase("Y")){
+            return null;
+        }
+
         //============================ MEAT ============================
         System.out.println("\nMeats (Premium Toppings):");
         showLoadingSpinner(2000);
@@ -49,7 +57,7 @@ public class CustomizeSandwich {
             for (String meat : meats) {
                 String meatType = meat.trim().toLowerCase();
                 if (!meatType.isEmpty()) {
-                    Meat topping = new Meat(meatType);
+                    Meat topping = new Meat(meatType, sandwich.getSize());
                     topping.setExtra(isExtra);
                     sandwich.addMeats(topping);
                 }
@@ -58,17 +66,16 @@ public class CustomizeSandwich {
 
         //============================ CHEESE ============================
         System.out.println("\nCheese (Premium Toppings):");
-        showLoadingSpinner(2000);
+        showLoadingSpinner(1000);
         System.out.println("- american, provolone, cheddar, swiss");
-        showLoadingSpinner(2000);
+        showLoadingSpinner(1000);
         System.out.println("Base Prices: $0.75 $1.50 $2.25");
-        showLoadingSpinner(2000);
+        showLoadingSpinner(1000);
         System.out.println("Extra Cheese: $0.30 $0.60 $0.90");
 
         //while (true) {
             System.out.println("Would you like to add cheese? (Y/N): or press Enter to skip: ");
             String userInput = myScanner.nextLine();
-            waitForEnter();
 
             if (userInput.equalsIgnoreCase("n")) {
                 return null; // Exit cheese loop
@@ -107,8 +114,9 @@ public class CustomizeSandwich {
         }
         // ======================= REGULAR TOPPINGS (Included) =======================
         System.out.println("\nRegular Toppings (Included, no extra charge):");
+        showLoadingSpinner(1000);
         System.out.println("- lettuce, peppers, onions, tomatoes, jalapeños, cucumbers, pickles, guacamole, mushrooms");
-
+        showLoadingSpinner(1000);
         System.out.print("Enter your regular toppings (use comma please), or press Enter to skip: ");
         String regularInput = myScanner.nextLine();
         if (!regularInput.isEmpty()) {
@@ -124,7 +132,9 @@ public class CustomizeSandwich {
 
         //============================ Sauces (Included) ============================
         System.out.println(" Sauces (Included): Mayo, Mustard, Ketchup, Ranch, Thousand Island, Vinaigrette");
-        System.out.print("Enter sauces you want (Use comma please): ");
+        showLoadingSpinner(1000);
+        System.out.print("Enter sauces you want (Use comma please)  or press Enter to skip:: ");
+        showLoadingSpinner(1000);
         String saucesInput = myScanner.nextLine();
 
         if (!saucesInput.trim().isEmpty()) {
@@ -138,7 +148,7 @@ public class CustomizeSandwich {
         //============================ Sides (Included) ============================
 
         System.out.println(" Sides (Included): Au Jus, Sauce");
-        System.out.print("Enter sides you want (Use comma please): ");
+        System.out.print("Enter sides you want (Use comma please)  or press Enter to skip:: ");
         String sidesInput = myScanner.nextLine();
 
         if (!sidesInput.trim().isEmpty()) {
@@ -148,6 +158,15 @@ public class CustomizeSandwich {
                     sandwich.addSides(new Sides(side));
                 }
             }
+        }
+        // ============================ Printing Summary of Order ============================
+
+        System.out.println(sandwich.getSummary());
+        showLoadingSpinner(1000);
+        System.out.println("Is this sandwich correct : Y");
+        String userChoice = myScanner.nextLine();
+        if(!userChoice.equalsIgnoreCase("y")){
+            return null;
         }
 
         // ============================ RETURN FINAL SANDWICH ============================

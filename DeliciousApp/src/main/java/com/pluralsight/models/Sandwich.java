@@ -105,6 +105,9 @@ public class Sandwich implements OrderItem{
         return totalPrice;
     }
 
+    public String getSize() {
+        return size;
+    }
     // getSummary method
 //   returns a string with sandwich details and total price
 
@@ -123,32 +126,41 @@ public class Sandwich implements OrderItem{
 
 
         // List all meats in the sandwich
-        summary.append("Meats: ");
-        for (Meat m : meats)
-            summary.append(m.getType() + ", ");
-
+      if(!meats.isEmpty()) {
+          summary.append("Meats: ");
+          for (Meat m : meats)
+              summary.append(m.getType() + ", ");
+      }
         // List all cheeses in the sandwich
-        summary.append("\nCheeses: ");
-        for (Cheese c : cheeses)
-            summary.append(c.getType() + ", ");
+        if(!cheeses.isEmpty()) {
+            summary.append("\nCheeses: ");
+            for (Cheese c : cheeses)
+                summary.append(c.getType() + ", ");
+        }
 
-        // List all regular or premium toppings
-        summary.append("\nToppings: ");
-        for (Topping t : toppings)
-            summary.append(t.getType() + ", ");
+        // List all regular  toppings
+        if(!toppings.isEmpty()) {
+            summary.append("\nToppings: ");
+            for (Topping t : toppings)
+                summary.append(t.getType() + ", ");
+        }
 
         // List all sauces (free)
-        summary.append("\nSauces: ");
-        for (Sauces s : sauces)
-            summary.append(s.getType() + ", ");
+        if(!sauces.isEmpty()) {
+            summary.append("\nSauces: ");
+            for (Sauces s : sauces)
+                summary.append(s.getType() + ", ");
+        }
 
         // List all sides (free)
-        summary.append("\nSides: ");
-        for (Sides s : sides)
-            summary.append(s.getType() + ", ");
+        if(!sides.isEmpty()) {
+            summary.append("\nSides: ");
+            for (Sides s : sides)
+                summary.append(s.getType() + ", ");
+        }
 
         // get the price of the sandwich
-        double price = getPrice();
+        double price = this.getPrice();
 
         // format the price to 2 decimal places
         String formattedPrice = String.format("%.2f", price);

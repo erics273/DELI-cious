@@ -46,6 +46,9 @@ public class HandleNewOrder {
                     case "1":
                         CustomizeSandwich sandwichBuilder = new CustomizeSandwich();// instantiate the object that build our sandwich.
                         Sandwich sandwich = sandwichBuilder.build();//we call the build method and store it in sandwich variable
+                        if(sandwich ==  null){
+                            break;
+                        }
                         myOrder.addSandwich(sandwich);
                         System.out.println("Sandwich added!\n");
                         //System.out.println( myOrder.sandwiches.toString());
@@ -67,14 +70,15 @@ public class HandleNewOrder {
                         break;
                     case "4":
                         // Validate order before proceeding
-                        if (myOrder.getSandwiches().isEmpty()) {
-                            System.out.println(" You must add at least one sandwich before checkout.");
+                        if (myOrder.getSandwiches().isEmpty() && myOrder.getDrinks().isEmpty() && myOrder.getChips().isEmpty() ) {
+                            System.out.println(" You must add at least one item before checkout.");
                             break;
                         }
                         CheckOutAndPrint checkout = new CheckOutAndPrint();
 
-                        // One receipt per sandwich (can be updated to group if needed)
+                        // One receipt per sandwich (can be updated to group if needed) = this need update
                         for (Sandwich s : myOrder.getSandwiches()) {
+
                             // Check if we have drinks, if yes get the first one, else null
                             Drink d = myOrder.getDrinks().isEmpty() ? null : myOrder.getDrinks().get(0);
                             // Check if we have chips, if yes get the first one, else null

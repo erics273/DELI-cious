@@ -1,0 +1,11 @@
+Sandwich Summary:
+Bread: white
+Size: 4
+Toasted: No
+
+Cheeses: american, 
+Sauces: mayo, 
+Sides: au jus, 
+Total Price: $6.50
+Drink: coke (s)
+Total Order Price: $15.00

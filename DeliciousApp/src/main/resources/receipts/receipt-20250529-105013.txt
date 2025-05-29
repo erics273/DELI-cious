@@ -1,0 +1,7 @@
+Sandwich Summary:
+Bread: white
+Size: 8
+Toasted: No
+
+Total Price: $7.00
+Total Order Price: $7.00

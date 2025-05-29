@@ -9,8 +9,9 @@ public class Topping {
     private String type; //regular or premium
 
     public Topping(String type) {
-        this.isPremium = isPremium;
-        this.price = price;
+        this.isPremium = false;// don't need this attribute
+        this.price = 0;
+        this.type = type;
     }
 
     public boolean isPremium() {
