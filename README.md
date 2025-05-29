@@ -14,13 +14,13 @@ The app collects all inputs, creates the corresponding objects (Meat, Cheese, To
 
 The user can add multiple meats and cheeses, decide on extras, and skip optional ingredients easily.
 
-##Table of Content
+Table of Content
 N/A
 
-##Installation
+Installation
 N/A
 
-##Usage
+Usage
 To use the application:
 
 Open your Java IDE (like IntelliJ or Eclipse) or use the terminal/command prompt.
@@ -61,21 +61,22 @@ Add sides (comma-separated)
 
 The sandwich will be constructed with your selections and ready to use in your program.
 
-##Screenshots
+Screenshots
 (Optional: Add screenshots or gifs here if you have them)
-![Console Flow](src/main/resources/images/console_flow.png)
-![Sandwich Summary](src/main/resources/images/sandwich_summary.png)
 
-##Credit
+Console Flow
+
+Sandwich Summary
+
+Credit
 Thanks to my instructor, tutors, peers, extensive Googling, and AI assistance who helped me understand Java concepts, handle user input, and design the CLI flow. Their support was invaluable in helping me complete this project and build a functional interactive sandwich shop app.
 
-##Interesting Piece of Code
+Interesting Piece of Code
 One interesting part of my code is the build() method which uses Scanner to interactively collect user input for each sandwich component, and dynamically creates objects for each choice. It handles multiple entries for meats and cheeses, validates inputs, and loops for adding multiple cheeses until the user is done.
 
 java
 Copy
 Edit
-```
 public Sandwich build() {
     Scanner myScanner = new Scanner(System.in);
 
@@ -91,10 +92,11 @@ public Sandwich build() {
     System.out.print("Would you like it toasted? (yes/no): ");
     String toastInput = myScanner.nextLine();
     toasted = toastInput.equalsIgnoreCase("yes");
-etc...
-```
+
+    // (continue with your logic...)
+}
 This method is a great demonstration of how to build a complex object through user input, conditionals, loops, and OOP principles.
 
-##License
+License
 N/A
 
