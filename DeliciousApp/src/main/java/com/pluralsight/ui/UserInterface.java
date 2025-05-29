@@ -21,7 +21,7 @@ public class UserInterface {
             Scanner myScanner = new Scanner(System.in);
             String choice = myScanner.nextLine();
 
-            //if we are not doing math it's better to do string
+            //if we are not doing math it's better to do string => tutoring guide
 
             //switch will be applicable
             switch (choice) {
@@ -36,6 +36,12 @@ public class UserInterface {
                     System.out.println(" Invalid input. Try");// do a loop to ask again // need try catch
             }
         }
+
+
+
+
+
+
     }
 
 

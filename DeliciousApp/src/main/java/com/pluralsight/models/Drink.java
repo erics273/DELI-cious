@@ -14,18 +14,7 @@ public class Drink {
         this.size = size;
         this.type = type;
 
-        this.price = calculatePriceFromSize(size); //Automatically set price based on size
-    }
-
-    //Custom Method
-
-    public double calculatePriceFromSize(String size) {
-        return switch (size.toLowerCase()) {
-            case "s" -> this.price = 2.00;
-            case "m" -> this.price = 2.50;
-            case "l" -> this.price = 3.00;
-            default -> this.price = 0;
-        };
+        this.price = price; //Automatically set price based on size
     }
 
     //Generate getter and setter.
@@ -36,11 +25,23 @@ public class Drink {
 
     public void setSize(String size) {
         this.size = size;
-        this.price = calculatePriceFromSize(size); // Update price when size changes
+
     }
 
     public double getPrice() {
-        return price;
+        switch (size.toLowerCase()) {
+            case "s":
+            case "small":
+                return 2.00;
+            case "m":
+            case "medium":
+                return 2.50;
+            case "l":
+            case "large":
+                return 3.00;
+            default:
+                return 0.00;
+        }
     }
 
     public void setPrice(double price) {
@@ -65,9 +66,5 @@ public class Drink {
     }
 
 }
-/*List<MyItem> items = List.of(item1, item2, item3);
 
-List<MyItem> premiumItems = items.stream()
-  .filter(i -> i.getPrice("m") > 2.00)
-   .collect(Collectors.toList());*/
 

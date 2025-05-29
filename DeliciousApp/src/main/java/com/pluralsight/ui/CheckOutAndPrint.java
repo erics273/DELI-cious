@@ -9,53 +9,89 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class CheckOutAndPrint {
 
-        public void printReceipt(Sandwich sandwich, Drink drink, Chips chips) {
+    public void printReceipt(Sandwich sandwich, Drink drink, Chips chips) {
 
-            // Start with the base price of the sandwich
-            double total = sandwich.getPrice();
+        // Start with the base price of the sandwich
+        double total = sandwich.getPrice();
 
-            // Use StringBuilder to create the receipt text
-            StringBuilder receipt = new StringBuilder();
+        // Use StringBuilder to create the receipt text
+        StringBuilder receipt = new StringBuilder();
 
-            // Add sandwich details to the receipt
-            receipt.append(sandwich.getSummary()).append("\n");
+        // Add sandwich details to the receipt
+        receipt.append(sandwich.getSummary()).append("\n");
 
-            // If the customer ordered a drink, add it to the receipt and update total
-            if (drink != null) {
-                receipt.append("Drink: ").append(drink.getType()).append(" (" + drink.getSize() + ")\n");
-                total += drink.getPrice();
-            }
+        // If the customer ordered a drink, add it to the receipt and update total
+        if (drink != null) {
+            receipt.append("Drink: ").append(drink.getType()).append(" (" + drink.getSize() + ")\n");
+            total += drink.getPrice();
+        }
 
-            // If the customer ordered chips, add to the receipt and update total
-            if (chips != null) {
-                receipt.append("Chips: ").append(chips.getFlavor()).append("\n");
-                total += chips.getPrice();
-            }
+        // If the customer ordered chips, add to the receipt and update total
+        if (chips != null) {
+            receipt.append("Chips: ").append(chips.getFlavor()).append("\n");
+            total += chips.getPrice();
+        }
 
-            // Add the total price of the entire order to the receipt
-            receipt.append("Total Order Price: $").append(String.format("%.2f", total));
+        // Add the total price of the entire order to the receipt
+        receipt.append("Total Order Price: $").append(String.format("%.2f", total));
 
-            // Print the receipt to the console
-            System.out.println(receipt);
+        // Print the receipt to the console
+        System.out.println(receipt);
 
-            // Save to file
-            try {
-                // Create a unique file name with current date and time
-                String fileName = "resources/receipts/receipt-" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss")) + ".txt";
+        // Save to file
+        try {
+            // Create a unique file name with current date and time
+            String fileName = "resources/receipts/receipt-" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss")) + ".txt";
 
-                // Open the file and write the receipt content
-                BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
-                writer.write(receipt.toString());
-                writer.close();
+            // Open the file and write the receipt content
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+            writer.write(receipt.toString());
+            writer.close();
 
-                // Confirm that the receipt was saved
-                System.out.println("Receipt saved to " + fileName);
-            } catch (IOException e) {
-                // If something goes wrong with saving, show an error message
-                System.out.println("Failed to save receipt: " + e.getMessage());
-            }
+            // Confirm that the receipt was saved
+            System.out.println("Receipt saved to " + fileName);
+        } catch (IOException e) {
+            // If something goes wrong with saving, show an error message
+            System.out.println("Failed to save receipt: " + e.getMessage());
         }
     }
+//================================ Loading Spinner ===============================
+
+    // gives the user a visual spinner for loading. Useful and looks professional.
+    public void showLoadingSpinner(int durationMillis) {
+        char[] spinner = {'|', '/', '-', '\\'};
+        long startTime = System.currentTimeMillis();
+
+        while (System.currentTimeMillis() - startTime < durationMillis) {
+            for (char ch : spinner) {
+                System.out.print("\rLoading " + ch);
+                try {
+                    Thread.sleep(250);
+                } catch (InterruptedException e) {
+                    System.out.println("\nLoading interrupted.");
+                    return;
+                }
+            }
+        }
+
+        System.out.print("\rLoading done!         \n");
+    }
+
+    //Method waits until user presses Enter gives control to user.
+    public static void waitForEnter() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\nPress Enter to continue...");
+        scanner.nextLine();
+    }
+
+    //Method to assist with making the first letter of our string to capital to avoid error
+    public static String capitalizeFirstLetter(String input) {
+        if (input == null || input.isEmpty()) return input;
+        return input.substring(0, 1).toUpperCase() + input.substring(1).toLowerCase();
+    }
+}
+
