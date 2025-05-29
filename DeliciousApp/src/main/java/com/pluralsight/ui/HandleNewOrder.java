@@ -56,6 +56,9 @@ public class HandleNewOrder {
                     case "2":
                         AddDrink drinkAdder = new AddDrink();
                         Drink drink = drinkAdder.getDrink();
+                        if(drink == null){
+                            break;
+                        }
                         myOrder.addDrink(drink);
                         showLoadingSpinner(2000);
                         System.out.println("Drink added!\n");
@@ -64,6 +67,9 @@ public class HandleNewOrder {
                     case "3":
                         AddChips chipAdder = new AddChips();
                         Chips chips = chipAdder.getChips();
+                        if(chips == null){
+                            break;
+                        }
                         myOrder.addChips(chips);
                         System.out.println("Chips added!\n");
                         //System.out.println( myOrder.chips.toString());
@@ -75,17 +81,7 @@ public class HandleNewOrder {
                             break;
                         }
                         CheckOutAndPrint checkout = new CheckOutAndPrint();
-
-                        // One receipt per sandwich (can be updated to group if needed) = this need update
-                        for (Sandwich s : myOrder.getSandwiches()) {
-
-                            // Check if we have drinks, if yes get the first one, else null
-                            Drink d = myOrder.getDrinks().isEmpty() ? null : myOrder.getDrinks().get(0);
-                            // Check if we have chips, if yes get the first one, else null
-                            Chips c = myOrder.getChips().isEmpty() ? null : myOrder.getChips().get(0);
-                            // Print receipt for this sandwich + drink + chips (if any)
-                            checkout.printReceipt(s, d, c);
-                        }
+                        checkout.printReceipt(myOrder);
 
                         running = false;
                         break;

@@ -17,7 +17,7 @@ public class AddDrink {
 
         // Ask the user if they want a drink
         showLoadingSpinner(1000);
-        System.out.print("Would you like a drink? (yes/no): ");
+        System.out.print("Would you like a drink? (yes/Y) /(No/N): ");
         String answer = scanner.nextLine().trim();
 
         // If they said "yes", ask for details and create a drink

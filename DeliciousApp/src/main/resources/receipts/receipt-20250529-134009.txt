@@ -1,0 +1,9 @@
+Sandwich Summary:
+Bread: white
+Size: 4
+Toasted: No
+
+Cheeses: american, 
+Sauces: mayo, 
+Total Price: $6.50
+Total Order Price: $13.00
