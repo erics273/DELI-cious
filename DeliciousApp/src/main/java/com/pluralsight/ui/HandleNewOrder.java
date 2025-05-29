@@ -4,6 +4,7 @@ import com.pluralsight.models.Chips;
 import com.pluralsight.models.Drink;
 import com.pluralsight.models.Order;
 import com.pluralsight.models.Sandwich;
+
 import java.util.Scanner;
 
 import static com.pluralsight.util.UiHelper.showLoadingSpinner;
@@ -46,7 +47,7 @@ public class HandleNewOrder {
                     case "1":
                         CustomizeSandwich sandwichBuilder = new CustomizeSandwich();// instantiate the object that build our sandwich.
                         Sandwich sandwich = sandwichBuilder.build();//we call the build method and store it in sandwich variable
-                        if(sandwich ==  null){
+                        if (sandwich == null) {
                             break;
                         }
                         myOrder.addSandwich(sandwich);
@@ -56,7 +57,7 @@ public class HandleNewOrder {
                     case "2":
                         AddDrink drinkAdder = new AddDrink();
                         Drink drink = drinkAdder.getDrink();
-                        if(drink == null){
+                        if (drink == null) {
                             break;
                         }
                         myOrder.addDrink(drink);
@@ -67,7 +68,7 @@ public class HandleNewOrder {
                     case "3":
                         AddChips chipAdder = new AddChips();
                         Chips chips = chipAdder.getChips();
-                        if(chips == null){
+                        if (chips == null) {
                             break;
                         }
                         myOrder.addChips(chips);
@@ -76,7 +77,7 @@ public class HandleNewOrder {
                         break;
                     case "4":
                         // Validate order before proceeding
-                        if (myOrder.getSandwiches().isEmpty() && myOrder.getDrinks().isEmpty() && myOrder.getChips().isEmpty() ) {
+                        if (myOrder.getSandwiches().isEmpty() && myOrder.getDrinks().isEmpty() && myOrder.getChips().isEmpty()) {
                             System.out.println(" You must add at least one item before checkout.");
                             break;
                         }

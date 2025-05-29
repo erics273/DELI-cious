@@ -129,7 +129,8 @@ public class Sandwich implements OrderItem{
       if(!meats.isEmpty()) {
           summary.append("Meats: ");
           for (Meat m : meats)
-              summary.append(m.getType() + ", ");
+              summary.append("meat type : " + m.getType() + ", " +m.getSize() + " inch size" +
+                      ",  $" + m.getPrice() + " price");
       }
         // List all cheeses in the sandwich
         if(!cheeses.isEmpty()) {

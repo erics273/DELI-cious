@@ -67,7 +67,7 @@ public class UiHelper {
     //helper method to confirm the order summary and make sure if user want to continue or cancel
     // Scanner help with user input check, and we are making sure it show sandwich
     // This is a helper method to confirm if the user is happy with the sandwich so far.
-    private boolean confirmStep(Scanner scanner, Sandwich sandwich) {
+   public static boolean confirmStep(Scanner scanner, Sandwich sandwich) {
 
         // Print the current summary of the sandwich (bread, meat, cheese, etc.)
         System.out.println("\n" + sandwich.getSummary());
@@ -77,10 +77,14 @@ public class UiHelper {
 
         // Use the Scanner to read what the user types.
         String input = scanner.nextLine();
-
-        // If the user typed Y or y, return true (they're happy!)
-        // Otherwise, return false (they want to cancel or change)
-        return input.equalsIgnoreCase("Y");
+       // Check if the user typed "Y" (yes)
+       if (input.equalsIgnoreCase("Y")) {
+           return true; // They confirmed, continue with the order
+       } else {
+           // They typed something else — cancel it
+           System.out.println("Order canceled.");
+           return false;
+       }
         //if (!confirmStep(myScanner, sandwich)) return null;
     }
 
