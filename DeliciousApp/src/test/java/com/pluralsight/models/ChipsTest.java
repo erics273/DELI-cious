@@ -29,5 +29,5 @@ class ChipsTest {
         assertEquals(1.5, chips.getPrice(), 0.001);
     }
 
-//no matter what price provided the price of chips is going to be $1.50.
+//no matter what price provided the price of chips is going to be $1.50 setting will show error.
 }

@@ -17,12 +17,23 @@ public class Chips {
         return PRICE;
     }
 
+    public void setPrice(double price) {
+        System.out.println(" Abort mission ! You can't change the price");
+    }
+
     public String getFlavor() {
         return flavor;
     }
 
     public void setFlavor(String flavor) {
         this.flavor = flavor;
+    }
+
+    @Override
+    public String toString() {
+        return "Chips{" +
+                "flavor => " + flavor + '\'' +
+                ", price=" + PRICE;
     }
 }
 

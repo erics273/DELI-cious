@@ -6,9 +6,9 @@ public class Topping {
 
     private boolean isPremium;
     private double price;
-    private String type;
+    private String type; //regular or premium
 
-    public Topping(boolean isPremium) {
+    public Topping(String type) {
         this.isPremium = isPremium;
         this.price = price;
     }
@@ -45,8 +45,7 @@ public class Topping {
 
     public void isRegular(Topping topping) {
         if (!topping.isPremium()) {
-            System.out.println("You choose regular! " + topping.getType() + " " + "topping no charge");
-            this.price = 0;
+            System.out.println("You choose regular! " + topping.getType() + "topping no charge");
         }
 
     }

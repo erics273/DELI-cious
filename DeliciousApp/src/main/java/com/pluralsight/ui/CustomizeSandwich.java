@@ -24,43 +24,35 @@ public class CustomizeSandwich {
         // Create sandwich object
         Sandwich sandwich = new Sandwich(bread, sizeChoice, toasted);
 
-        // ============================ MEAT SECTION ============================
+        //============================ MEAT ============================
+        System.out.println("\nMeats (Premium Toppings):");
+        System.out.println("- steak, ham, salami, roast beef, chicken, bacon");
+        System.out.println("Base Prices: $1.00 $2.00 $3.00");
+        System.out.println("Extra Meat: $0.50 $1.00 $1.50");
 
-        System.out.print("Enter meat size (4/8/12): ");
-        String meatSize = myScanner.nextLine();
+        System.out.print("Enter meats (use comma please), or press Enter to skip: ");
+        String meatInput = myScanner.nextLine();
 
-        System.out.println("Enter type of meat(s) (Steak, Ham, Salami, Roast Beef, Chicken, Bacon) — use comma:");
-        String meatTypeChoice = myScanner.nextLine();
+        if (!meatInput.isEmpty()) {
+            System.out.print("Do you want extra meat?\n (Y(Yes)/N(No): ");
+            boolean isExtra = myScanner.nextLine().equalsIgnoreCase("y");
 
-        if (!meatTypeChoice.trim().isEmpty()) {
-
-            System.out.print("Do you want Extra meat? (y/n): ");
-            String meatExtra = myScanner.nextLine();
-            boolean isExtraMeat = meatExtra.equalsIgnoreCase("y");
-
-            // Split meats and loop through
-            String[] meats = meatTypeChoice.split(",");
-            for (String m : meats) {
-                String meatType = m.trim().toLowerCase();
-
-                // Only add valid meats
-                switch (meatType) {
-                    case "steak":
-                    case "ham":
-                    case "salami":
-                    case "roast beef":
-                    case "chicken":
-                    case "bacon":
-                        sandwich.addMeats(new Meat(meatSize, isExtraMeat, meatType));
-                        break;
-                    default:
-                        System.out.println("Invalid meat type ignored: " + m.trim());
-                        break;
+            String[] meats = meatInput.split(",");
+            for (String meat : meats) {
+                String meatType = meat.trim().toLowerCase();
+                if (!meatType.isEmpty()) {
+                    Meat topping = new Meat(meatType);
+                    topping.setExtra(isExtra);
+                    sandwich.addMeats(topping);
                 }
             }
         }
 
-        // ============================ CHEESE SECTION ============================
+        //============================ CHEESE ============================
+        System.out.println("\nCheese (Premium Toppings):");
+        System.out.println("- american, provolone, cheddar, swiss");
+        System.out.println("Base Prices: $0.75 $1.50 $2.25");
+        System.out.println("Extra Cheese: $0.30 $0.60 $0.90");
 
         while (true) {
             System.out.println("Would you like to add cheese? (Y/N): ");
@@ -101,30 +93,24 @@ public class CustomizeSandwich {
                     break;
             }
         }
+        // ======================= REGULAR TOPPINGS (Included) =======================
+        System.out.println("\nRegular Toppings (Included, no extra charge):");
+        System.out.println("- lettuce, peppers, onions, tomatoes, jalapeños, cucumbers, pickles, guacamole, mushrooms");
 
-        // =================== Toppings (Included) =====================
-
-        System.out.println("Regular Toppings (Included): Lettuce, Peppers, Onions, Tomatoes, Jalapeños, Cucumber, Pickles, Guacamole, Mushrooms");
-        System.out.print("Enter your toppings (use comma please): ");
-        String toppingsInput = myScanner.nextLine();
-
-        if (!toppingsInput.trim().isEmpty()) {
-
-            String[] toppings = toppingsInput.split(",");
+        System.out.print("Enter your regular toppings (use comma please), or press Enter to skip: ");
+        String regularInput = myScanner.nextLine();
+        if (!regularInput.isEmpty()) {
+            String[] toppings = regularInput.split(",");
             for (String t : toppings) {//
                 String toppingType = t.trim();
                 if (!toppingType.isEmpty()) {
-                    Topping topping = new Topping(false); // Regular topping
-                    topping.setType(toppingType);
-                    topping.isRegular(topping); // Show no-charge message and set price = 0
+                    Topping topping = new Topping(toppingType); // Regular topping
                     sandwich.addTopping(topping);
                 }
             }
         }
 
-
-
-        // =================== Sauces (Included) =====================
+        //============================ Sauces (Included) ============================
         System.out.println(" Sauces (Included): Mayo, Mustard, Ketchup, Ranch, Thousand Island, Vinaigrette");
         System.out.print("Enter sauces you want (Use comma please): ");
         String saucesInput = myScanner.nextLine();
@@ -137,8 +123,8 @@ public class CustomizeSandwich {
                 }
             }
         }
+    //============================ Sides (Included) ============================
 
-        // =================== Sides (Included) =====================
         System.out.println(" Sides (Included): Au Jus, Sauce");
         System.out.print("Enter sides you want (Use comma please): ");
         String sidesInput = myScanner.nextLine();
@@ -152,7 +138,7 @@ public class CustomizeSandwich {
             }
         }
 
-        // ============================ RETURN FINAL SANDWICH ============================
+    // ============================ RETURN FINAL SANDWICH ============================
         return sandwich;
     }
 }

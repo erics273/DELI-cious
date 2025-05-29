@@ -14,7 +14,7 @@ public class AddDrink {
         String answer = scanner.nextLine();
 
         // If they said "yes", ask for details and create a drink
-        if (answer.equalsIgnoreCase("yes")) {
+        if (answer.equalsIgnoreCase("yes") || answer.equalsIgnoreCase("y")) {
             // Ask for the type of drink (like Coke, Sprite, etc.)
             System.out.print("Enter drink type: ");
             String type = scanner.nextLine();

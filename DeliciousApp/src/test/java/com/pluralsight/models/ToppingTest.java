@@ -8,7 +8,7 @@ class ToppingTest {
     @Test
     void testIsPremiumToppingReturnsTrueForMeat() {
         // Arrange
-        Meat meat= new Meat("8", true, 2, "Chicken"); // Meat extends Topping
+        Meat meat= new Meat("8",true, "ham"); // Meat extends Topping
 
         // Act
         boolean result = Topping.isPremiumTopping(meat);
@@ -32,7 +32,7 @@ class ToppingTest {
     @Test
     void testIsPremiumToppingReturnsFalseForOtherTopping() {
         // Arrange
-        Topping lettuce = new Topping(false);
+        Topping lettuce = new Topping("lettuce");
 
         // Act
         boolean result = Topping.isPremiumTopping(lettuce);
@@ -44,7 +44,7 @@ class ToppingTest {
     @Test
     void testIsRegularPrintsMessageWhenToppingIsNotPremium() {
         // Arrange
-        Topping regularTopping = new Topping(false);
+        Topping regularTopping = new Topping("American");
         regularTopping.setType("Lettuce");
 
         // Act

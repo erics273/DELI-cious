@@ -10,9 +10,12 @@ public class Sandwich {
     private boolean isToasted;// store if sandwich is toasted
     private ArrayList<Meat> meats; //store meats
     private ArrayList<Cheese> cheeses; //store Cheeses
-    private ArrayList<Topping> toppings;// store toppings
+    private ArrayList<Topping> toppings;// store toppings includes meats, cheeses, and regular toppings
     private ArrayList<Sauces> sauces; // store sauces
     private ArrayList<Sides> sides;
+    private Chips chips;
+    private Drink drink;
+
     private double price;// keep track of total price
 
 
@@ -33,8 +36,7 @@ public class Sandwich {
         this.sides = new ArrayList<>();
 
     }
-
-    // addMeat/Cheese/Topping/Sauce method:
+// addMeat/Cheese/Topping/Sauce method:
 
     public void addMeats(Meat meat) {
         meats.add(meat);// add meat(s)
@@ -51,30 +53,55 @@ public class Sandwich {
     public void addSauce(Sauces sauce) {
         sauces.add(sauce);// add sauce(s)
     }
-    public void addSides(Sides side){
+
+    public void addSides(Sides side) {
         sides.add(side);
     }
 
+    /*
+     * Calculates total sandwich price:
+     * Base sandwich price + premium (meats + cheeses )+ regular toppings.
+     * Sauces and sides are free.
+     * return total price as double
+     */
+
     // The price based on size and whether it's extra?
     public double getPrice() {
-        double total = 0;
 
+        double totalPrice = 0.0;
+
+        // Base sandwich price by size
+        switch (size) {
+            case "4": totalPrice += 5.50; break;
+            case "8": totalPrice += 7.00; break;
+            case "12": totalPrice += 8.50; break;
+        }
+        // Add meats (base + extra included in getPrice)
         for (Meat meat : meats) {
-            total += meat.getPrice();
+            totalPrice += meat.getPrice();
         }
 
+        // Add cheeses
         for (Cheese cheese : cheeses) {
-            total += cheese.getPrice();
+            totalPrice += cheese.getPrice();
         }
 
-        for (Topping topping : toppings) {
-            // if toppings also return price
-            total += topping.getPrice();
+        //  Regular toppings (free) are not charged
+
+
+        // Add chips (if selected)
+        if (chips != null) {
+            totalPrice += chips.getPrice(); // Always $1.50
+        }
+        // Add drink (if selected)
+        if (drink != null) {
+            totalPrice += drink.getPrice(); // $2.00–$3.00 based on size
         }
 
-        //Sauces are free, so not added to total
+        //  Store total
+        this.price = totalPrice;
 
-        return total;
+        return totalPrice;
     }
 
     // getSummary method
@@ -115,7 +142,7 @@ public class Sandwich {
 
         // List all sides (free)
         summary.append("\nSides: ");
-        for(Sides s : sides)
+        for (Sides s : sides)
             summary.append(s.getType() + ", ");
 
         // get the price of the sandwich
@@ -130,6 +157,6 @@ public class Sandwich {
         return summary.toString();//turn all the words into one readable sentence by using toString() and return it.
 
     }
-
 }
+
 
