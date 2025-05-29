@@ -56,10 +56,14 @@ public class CustomizeSandwich {
         System.out.println("Extra Meat: $0.50 $1.00 $1.50");
 
         System.out.println("Would you like to add meat? (Y): or press Enter to skip: ");
-        if (myScanner.nextLine().trim().equalsIgnoreCase("Y")) {
-
+        String meatChoice = myScanner.nextLine().trim();
+        if (!meatChoice.equalsIgnoreCase("Y")) {
+            System.out.println("Skipping Meat option...");
+            showLoadingSpinner(100);
+        }else {
             String[] meats;
             while (true) {
+                showLoadingSpinner(1000);
                 System.out.print("Enter meats - steak, ham, salami, roast beef, chicken, bacon (use comma please): ");
                 String meatInput = myScanner.nextLine().trim().toLowerCase();
                 meats = meatInput.split(",");
@@ -77,8 +81,10 @@ public class CustomizeSandwich {
                 if (allValid) break; // Exit loop only if all meats are valid
             }
 
+
             // Get valid size
             while (true) {
+                showLoadingSpinner(1000);
                 System.out.print("Enter the size you want (4/8/12): ");
                 sizeChoice = myScanner.nextLine().trim();
                 if (sizeChoice.matches("4|8|12")) break;
@@ -117,49 +123,69 @@ public class CustomizeSandwich {
         System.out.println("Base Prices: $0.75 $1.50 $2.25");
         showLoadingSpinner(1000);
         System.out.println("Extra Cheese: $0.30 $0.60 $0.90");
+        System.out.println("Would you like to add cheese? (Y): or press Enter to skip: ");
 
-        while (true) {
-            System.out.println("Would you like to add cheese? (Y): or press Enter to skip: ");
-            String userInput = myScanner.nextLine();
+        //Accept user input
+        String cheeseAnswer = myScanner.nextLine().trim();
 
-            if (!userInput.equalsIgnoreCase("y")) {
-                break; // Exit cheese loop
+        //validation for input
+        if (!cheeseAnswer.equalsIgnoreCase("Y")) {
+            System.out.println("Skipping Cheese option...");
+            showLoadingSpinner(100);
+        }else{
+
+            String[] cheeses;
+            while (true) {
+                System.out.print("Enter Cheese - American, Provolone, Cheddar, Swiss (use comma please): ");
+                String cheeseInput = myScanner.nextLine().trim().toLowerCase();
+                cheeses = cheeseInput.split(",");
+                boolean allValid = true;
+
+                for (String cheese : cheeses) {
+                    String c = cheese.trim();
+                    if (!c.matches("American| Provolone| Cheddar| Swiss")) {
+                        System.out.println("Invalid Cheese: '" + c + "'. Try again.");
+                        allValid = false;
+                        break;
+                    }
+                }
+
+                if (allValid) break; // Exit loop only if all meats are valid
             }
 
-            // Ask for cheese size
-            System.out.print("Enter cheese size (4/8/12): ");
-            String cheeseSize = myScanner.nextLine();
-
-            // Ask for cheese type
-            System.out.println("Enter type of cheese (American, Provolone, Cheddar, Swiss):");
-            String cheeseTypeInput = myScanner.nextLine();
-
-            if (cheeseTypeInput.trim().isEmpty()) {
-                System.out.println("You selected no cheese. Try again.");
-                //1continue; // Restart cheese loop
+            // Get valid size
+            while (true) {
+                System.out.print("Enter the size you want (4/8/12): ");
+                sizeChoice = myScanner.nextLine().trim();
+                if (sizeChoice.matches("4|8|12")) break;
+                System.out.println("Invalid size. Try again.");
             }
 
-            System.out.print("Do you want extra cheese? (Y(Yes)/N(No)): ");
-            String cheeseExtra = myScanner.nextLine();
-            boolean isExtraCheese = cheeseExtra.equalsIgnoreCase("y");
+            // Ask if extra meat
+            boolean isExtra = false;
+            System.out.print("Do you want extra cheese? (Y/N): ");
+            String cheeseExtra = myScanner.nextLine().trim();
 
-            String cheeseType = cheeseTypeInput.trim().toLowerCase();
-
-            switch (cheeseType) {
-                case "american":
-                case "provolone":
-                case "cheddar":
-                case "swiss":
-                    sandwich.addCheese(new Cheese(cheeseSize, cheeseType, isExtraCheese));
-                    break;
-                default:
-                    System.out.println("Invalid cheese type ignored: " + cheeseTypeInput);
-                    break;
+            //validation for extra input choice
+            if (cheeseExtra.equalsIgnoreCase("Y")) {
+                isExtra = true;
+            } else {
+                System.out.println("Skipping extra cheese option...");
             }
-            break;
+
+            // Process each valid meat
+            for (String c : cheeses) {
+                String cheeseType = c.trim().toLowerCase();
+                if (!cheeseType.isEmpty()) {
+                    Cheese topping = new Cheese(cheeseType); // use sizeChoice here
+                    topping.setExtra(isExtra);
+                    sandwich.addCheese(topping);
+                }
+            }
+
+            // Confirm sandwich
+            if (!confirmStep(myScanner, sandwich)) return null;
         }
-        if (!confirmStep(myScanner, sandwich)) return null;
-
 
         // ======================= REGULAR TOPPINGS (Included) =======================
         System.out.println("\nRegular Toppings (Included, no extra charge):");
@@ -179,7 +205,6 @@ public class CustomizeSandwich {
             }
         }
         if (!confirmStep(myScanner, sandwich)) return null;
-
 
 
         //============================ Sauces (Included) ============================
