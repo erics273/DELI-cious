@@ -64,6 +64,7 @@ One interesting part of my code is the build() method, which uses Scanner to int
 java
 Copy
 Edit
+```
 public Sandwich build() {
     Scanner myScanner = new Scanner(System.in);
 
@@ -80,9 +81,10 @@ public Sandwich build() {
     String toastInput = myScanner.nextLine();
     toasted = toastInput.equalsIgnoreCase("yes");
 
-    // (continue with your logic...)
+    // (continue  logic...)
 }
 This method is a great demonstration of how to build a complex object through user input, conditionals, loops, and OOP principles.
+```
 
 ## License
 N/A
