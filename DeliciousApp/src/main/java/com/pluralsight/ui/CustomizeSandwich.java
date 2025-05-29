@@ -4,6 +4,9 @@ import com.pluralsight.models.*;
 
 import java.util.Scanner;
 
+import static com.pluralsight.util.UiHelper.showLoadingSpinner;
+import static com.pluralsight.util.UiHelper.waitForEnter;
+
 public class CustomizeSandwich {
     public Sandwich build() {
         Scanner myScanner = new Scanner(System.in);
@@ -26,15 +29,20 @@ public class CustomizeSandwich {
 
         //============================ MEAT ============================
         System.out.println("\nMeats (Premium Toppings):");
+        showLoadingSpinner(2000);
         System.out.println("- steak, ham, salami, roast beef, chicken, bacon");
+        showLoadingSpinner(2000);
         System.out.println("Base Prices: $1.00 $2.00 $3.00");
+        showLoadingSpinner(2000);
         System.out.println("Extra Meat: $0.50 $1.00 $1.50");
 
         System.out.print("Enter meats (use comma please), or press Enter to skip: ");
+        waitForEnter();
         String meatInput = myScanner.nextLine();
 
         if (!meatInput.isEmpty()) {
             System.out.print("Do you want extra meat?\n (Y(Yes)/N(No): ");
+            showLoadingSpinner(2000);
             boolean isExtra = myScanner.nextLine().equalsIgnoreCase("y");
 
             String[] meats = meatInput.split(",");
@@ -50,16 +58,20 @@ public class CustomizeSandwich {
 
         //============================ CHEESE ============================
         System.out.println("\nCheese (Premium Toppings):");
+        showLoadingSpinner(2000);
         System.out.println("- american, provolone, cheddar, swiss");
+        showLoadingSpinner(2000);
         System.out.println("Base Prices: $0.75 $1.50 $2.25");
+        showLoadingSpinner(2000);
         System.out.println("Extra Cheese: $0.30 $0.60 $0.90");
 
-        while (true) {
-            System.out.println("Would you like to add cheese? (Y/N): ");
+        //while (true) {
+            System.out.println("Would you like to add cheese? (Y/N): or press Enter to skip: ");
             String userInput = myScanner.nextLine();
+            waitForEnter();
 
             if (userInput.equalsIgnoreCase("n")) {
-                break; // Exit cheese loop
+                return null; // Exit cheese loop
             }
 
             // Ask for cheese size
@@ -72,10 +84,10 @@ public class CustomizeSandwich {
 
             if (cheeseTypeInput.trim().isEmpty()) {
                 System.out.println("You selected no cheese. Try again.");
-                continue; // Restart cheese loop
+                //1continue; // Restart cheese loop
             }
 
-            System.out.print("Do you want extra cheese? (Y/N): ");
+            System.out.print("Do you want extra cheese? (Y(Yes)/N(No)): ");
             String cheeseExtra = myScanner.nextLine();
             boolean isExtraCheese = cheeseExtra.equalsIgnoreCase("y");
 
@@ -91,7 +103,7 @@ public class CustomizeSandwich {
                 default:
                     System.out.println("Invalid cheese type ignored: " + cheeseTypeInput);
                     break;
-            }
+          //  }
         }
         // ======================= REGULAR TOPPINGS (Included) =======================
         System.out.println("\nRegular Toppings (Included, no extra charge):");
@@ -123,7 +135,7 @@ public class CustomizeSandwich {
                 }
             }
         }
-    //============================ Sides (Included) ============================
+        //============================ Sides (Included) ============================
 
         System.out.println(" Sides (Included): Au Jus, Sauce");
         System.out.print("Enter sides you want (Use comma please): ");
@@ -138,7 +150,7 @@ public class CustomizeSandwich {
             }
         }
 
-    // ============================ RETURN FINAL SANDWICH ============================
+        // ============================ RETURN FINAL SANDWICH ============================
         return sandwich;
     }
 }

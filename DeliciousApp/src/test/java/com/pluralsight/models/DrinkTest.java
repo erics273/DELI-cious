@@ -12,7 +12,7 @@ class DrinkTest {
         Drink myDrink = new Drink("L", "diet coke");
 
         //Act
-        double actualPrice = myDrink.calculatePriceFromSize("l");
+        double actualPrice = myDrink.getPrice();
 
         //Assert
         assertEquals(3, actualPrice,0.01);

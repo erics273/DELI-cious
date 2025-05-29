@@ -1,6 +1,6 @@
 package com.pluralsight.models;
 
-public class Drink {
+public class Drink implements OrderItem {
 
     //Set attribute
 
@@ -27,7 +27,7 @@ public class Drink {
         this.size = size;
 
     }
-
+    @Override
     public double getPrice() {
         switch (size.toLowerCase()) {
             case "s":
@@ -63,6 +63,10 @@ public class Drink {
                 ", price=" + price +
                 ", type='" + type + '\'' +
                 '}';
+    }
+    @Override
+    public String getDescription() {
+        return type + " (" + size + ")";
     }
 
 }

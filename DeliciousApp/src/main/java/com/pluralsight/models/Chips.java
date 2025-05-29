@@ -1,6 +1,6 @@
 package com.pluralsight.models;
 
-public class Chips {
+public class Chips implements OrderItem {
 
     //Set attribute
     private static final double PRICE = 1.50;// the price is fixed and set.
@@ -13,6 +13,7 @@ public class Chips {
     }
 
     //Generate getter and setter
+    @Override
     public double getPrice() {
         return PRICE;
     }
@@ -34,6 +35,11 @@ public class Chips {
         return "Chips{" +
                 "flavor => " + flavor + '\'' +
                 ", price=" + PRICE;
+    }
+
+    @Override
+    public String getDescription() {
+        return this.flavor;
     }
 }
 
