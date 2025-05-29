@@ -21,7 +21,7 @@ N/A
 Installation
 N/A
 
-Usage
+## Usage
 To use the application:
 
 Open your Java IDE (like IntelliJ or Eclipse) or use the terminal/command prompt.
@@ -62,18 +62,20 @@ Add sides (comma-separated)
 
 The sandwich will be constructed with your selections and ready to use in your program.
 
-Screenshots
-(Optional: Add screenshots or gifs here if you have them)
+## Screenshots
+(Optional: Add screenshots or GIFs here if you have them)
+![Console Flow](src/main/resources/images/console_flow.png)
+![Sandwich Summary](src/main/resources/images/sandwich_summary.png)
 
-Console Flow
+## Console Flow
 
 Sandwich Summary
 
-Credit
-Thanks to my instructor, tutors, peers, extensive Googling, and AI assistance who helped me understand Java concepts, handle user input, and design the CLI flow. Their support was invaluable in helping me complete this project and build a functional interactive sandwich shop app.
+## Credit
+Thanks to my instructor, tutors, peers, extensive Googling, and AI assistance, who helped me understand Java concepts, handle user input, and design the CLI flow. Their support was invaluable in helping me complete this project and build a functional interactive sandwich shop app.
 
-Interesting Piece of Code
-One interesting part of my code is the build() method which uses Scanner to interactively collect user input for each sandwich component, and dynamically creates objects for each choice. It handles multiple entries for meats and cheeses, validates inputs, and loops for adding multiple cheeses until the user is done.
+## Interesting Piece of Code
+One interesting part of my code is the build() method, which uses Scanner to interactively collect user input for each sandwich component, and dynamically creates objects for each choice. It handles multiple entries for meats and cheeses, validates inputs, and loops for adding multiple cheeses until the user is done.
 
 java
 Copy
