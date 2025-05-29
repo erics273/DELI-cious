@@ -5,15 +5,17 @@ import com.pluralsight.models.*;
 import java.util.Scanner;
 
 import static com.pluralsight.util.UiHelper.showLoadingSpinner;
-import static com.pluralsight.util.UiHelper.waitForEnter;
+
 
 public class CustomizeSandwich {
     public Sandwich build() {
         Scanner myScanner = new Scanner(System.in);
 
         // Get bread and size
+
+        //============================ BREAD ============================
         System.out.print("Choose bread (White/Wheat/Rye/Wrap): ");
-        String bread = myScanner.nextLine();
+        String bread = myScanner.nextLine().trim().toLowerCase();
 
         System.out.print("Enter the size you want (4/8/12): ");
         String sizeChoice = myScanner.nextLine();
