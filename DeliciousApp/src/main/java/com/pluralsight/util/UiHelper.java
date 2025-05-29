@@ -38,4 +38,28 @@ public class UiHelper {
         if (input == null || input.isEmpty()) return input;
         return input.substring(0, 1).toUpperCase() + input.substring(1).toLowerCase();
     }
+
+    private String getValidatedSize(Scanner scanner) {
+        while (true) {
+            System.out.print("Enter the size you want (4/8/12): ");
+            String size = scanner.nextLine().trim();
+
+            if (size.equals("4") || size.equals("8") || size.equals("12")) {
+                return size;
+            }
+            System.out.println(" Invalid size. Please enter 4, 8, or 12.");
+        }
+    }
+
+    private boolean getValidatedToasted(Scanner scanner) {
+        while (true) {
+            System.out.print("Would you like it toasted? (yes/no): ");
+            String input = scanner.nextLine().trim().toLowerCase();
+
+            if (input.equals("yes")) return true;
+            if (input.equals("no")) return false;
+
+            System.out.println(" Invalid input. Please enter 'yes' or 'no'.");
+        }
+    }
 }
