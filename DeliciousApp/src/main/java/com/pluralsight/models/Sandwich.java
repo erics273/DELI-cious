@@ -117,7 +117,10 @@ public class Sandwich implements OrderItem{
         StringBuilder summary = new StringBuilder();//word collecting basket
 
         // Start with a header
-        summary.append("Sandwich Summary:\n");//add to it by using append
+        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+        summary.append("Sandwich Summary\n");//add to it by using append
+        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+
 
         // Add bread type, size, and toast preference
         summary.append("Bread: " + breadType + "\n");

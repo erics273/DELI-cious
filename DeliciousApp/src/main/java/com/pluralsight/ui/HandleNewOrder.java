@@ -19,7 +19,7 @@ public class HandleNewOrder {
         while (running) {
             while (running) {
                 System.out.println("==========================");
-                System.out.println("   Welcome to DELI-cious  ");
+                System.out.println("   DELI-cious Menu ");
                 System.out.println("==========================");
                 showLoadingSpinner(1000); // Show the user it's loading options
 
@@ -32,7 +32,8 @@ public class HandleNewOrder {
                         0. Cancel Order
                         """);
 
-                System.out.print("Choose an option (0-4): ");
+                System.out.print("Choose an option (0-4):\n ");
+                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 String userChoice = myScanner.nextLine().trim();
 
                 showLoadingSpinner(500);//visual delay
@@ -51,7 +52,12 @@ public class HandleNewOrder {
                             break;
                         }
                         myOrder.addSandwich(sandwich);
+                        showLoadingSpinner(1500);
+                        System.out.println("********************************");
                         System.out.println("Sandwich added!\n");
+                        System.out.println("********************************");
+                        showLoadingSpinner(1500);
+
                         //System.out.println( myOrder.sandwiches.toString());
                         break;
                     case "2":
@@ -61,8 +67,13 @@ public class HandleNewOrder {
                             break;
                         }
                         myOrder.addDrink(drink);
-                        showLoadingSpinner(2000);
+                        showLoadingSpinner(1500);
+                        System.out.println("********************************");
                         System.out.println("Drink added!\n");
+                        System.out.println("********************************");
+                        showLoadingSpinner(1500);
+
+
                         //System.out.println( myOrder.drinks.toString());
                         break;
                     case "3":
@@ -72,13 +83,23 @@ public class HandleNewOrder {
                             break;
                         }
                         myOrder.addChips(chips);
+                        showLoadingSpinner(1500);
+                        System.out.println("********************************");
                         System.out.println("Chips added!\n");
+                        System.out.println("********************************");
+                        showLoadingSpinner(1500);
+
                         //System.out.println( myOrder.chips.toString());
                         break;
                     case "4":
                         // Validate order before proceeding
                         if (myOrder.getSandwiches().isEmpty() && myOrder.getDrinks().isEmpty() && myOrder.getChips().isEmpty()) {
+                            showLoadingSpinner(1500);
+                            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                             System.out.println(" You must add at least one item before checkout.");
+                            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                            showLoadingSpinner(1500);
+
                             break;
                         }
                         CheckOutAndPrint checkout = new CheckOutAndPrint();
@@ -87,11 +108,20 @@ public class HandleNewOrder {
                         running = false;
                         break;
                     case "0":
+                        showLoadingSpinner(1600);
+                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                         System.out.println("Order cancelled. See you next time!");
+                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                        showLoadingSpinner(1600);
                         running = false;
                         break;
                     default:
+                        showLoadingSpinner(1600);
+                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                         System.out.println("Invalid option"); //how to save the item user giving me into one order object or class
+                        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                        showLoadingSpinner(1600);
+
                         //add the user input to the order class
                 }
 

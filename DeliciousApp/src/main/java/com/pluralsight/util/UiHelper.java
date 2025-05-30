@@ -73,16 +73,23 @@ public class UiHelper {
         System.out.println("\n" + sandwich.getSummary());
 
         // Ask the user if they like what they see.
-        System.out.print("Is this correct? Press \"Y\" to continue or anything else to cancel: ");
+       System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+       System.out.print("Is this correct? Press \"Y\" to continue or anything else to cancel: ");
+       System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
-        // Use the Scanner to read what the user types.
+
+       // Use the Scanner to read what the user types.
         String input = scanner.nextLine();
        // Check if the user typed "Y" (yes)
        if (input.equalsIgnoreCase("Y")) {
            return true; // They confirmed, continue with the order
        } else {
            // They typed something else — cancel it
-           System.out.println("Order canceled.");
+
+           System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+           System.out.println(       "Order canceled.");
+           System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+
            return false;
        }
         //if (!confirmStep(myScanner, sandwich)) return null;

@@ -2,7 +2,6 @@ package com.pluralsight.util;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -19,10 +18,16 @@ public class ReceiptWriter {
             writer.close();
 
             // Confirm that the receipt was saved
+            System.out.println("********************************");
             System.out.println("Receipt saved to "+fileName);
+            System.out.println("********************************");
+
         } catch(Exception e) {
             // If something goes wrong with saving, show an error message
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             System.out.println("Failed to save receipt: " + e.getMessage());
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
         }
     }
 }
