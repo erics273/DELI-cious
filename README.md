@@ -49,13 +49,13 @@ Add sauces (comma-separated), add sides (comma-separated), The sandwich will be 
 ## Screenshots
 (Optional: Add screenshots or GIFs here if you have them)
 ### Home Screen
-![Home Screen](src/main/Resources/videos_gif/homescreen-ezgif.com-video-to-gif-converter.mp4))
+![Home Screen](Resources/videos_gif/homescreen-ezgif.com-video-to-gif-converter.mp4))
 
 ### Order Screen
 
   *Add Drinks/*Add Chips
 
-![Order Drink,Checkout and Chips]("src/main/Resources/videos_gif/addChipsDrinkCheckout-ezgif.com-video-to-gif-converter.gif")
+![Order Drink,Checkout and Chips](src/main/Resources/videos_gif/addChipsDrinkCheckout-ezgif.com-video-to-gif-converter.gif)
 
   *Add Sauce
 
