@@ -48,6 +48,23 @@ Add sauces (comma-separated), add sides (comma-separated), The sandwich will be 
 
 ## Screenshots
 (Optional: Add screenshots or GIFs here if you have them)
+### Home Screen
+
+
+### Order Screen
+  *Add Sandwich 
+
+  *Add Drinks
+
+  *Add Chips
+
+  *Checkout
+
+
+  Cancel Order
+
+  
+
 ![Console Flow](src/main/resources/images/console_flow.png)
 ![Sandwich Summary](src/main/resources/images/sandwich_summary.png)
 
