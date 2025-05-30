@@ -60,7 +60,7 @@ Add sauces (comma-separated), add sides (comma-separated), The sandwich will be 
   *Add Drinks
 
   
-![Console Flow]("DELI-cious\Resources\videos_gif\addChipsDrinkCheckout-ezgif.com-video-to-gif-converter.gif")
+![Console Flow]("src/main/resources/videos_gif/addChipsDrinkCheckout-ezgif.com-video-to-gif-converter.gif")
 
   *Add Chips
 
