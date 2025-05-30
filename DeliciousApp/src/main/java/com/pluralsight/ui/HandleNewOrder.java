@@ -51,6 +51,17 @@ public class HandleNewOrder {
                         if (sandwich == null) {
                             break;
                         }
+                        // ========== Confirm before adding sandwich ==========
+                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("Do you want to add this sandwich to your order? (Y): or press Enter to cancel: ");
+                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        String confirmSandwich = myScanner.nextLine().trim();
+                        if (!confirmSandwich.equalsIgnoreCase("Y")) {
+                            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                            System.out.println("Sandwich not added.\n");
+                            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                            break;
+                        }
                         myOrder.addSandwich(sandwich);
                         showLoadingSpinner(1500);
                         System.out.println("********************************");
@@ -66,6 +77,18 @@ public class HandleNewOrder {
                         if (drink == null) {
                             break;
                         }
+                        // ========== Confirm before adding drink ==========
+                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("Do you want to add this drink to your order? (Y): or press Enter to cancel:\n ");
+                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        String confirmDrink = myScanner.nextLine().trim();
+                        if (!confirmDrink.equalsIgnoreCase("Y")) {
+                            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                            System.out.println("Drink not added.\n");
+                            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                            break;
+                        }
+
                         myOrder.addDrink(drink);
                         showLoadingSpinner(1500);
                         System.out.println("********************************");
@@ -82,6 +105,17 @@ public class HandleNewOrder {
                         if (chips == null) {
                             break;
                         }
+                        // ========== Confirm before adding chips ==========
+                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("Do you want to add these chips to your order? (Y): or press Enter to cancel:\n ");
+                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        String confirmChips = myScanner.nextLine().trim();
+                        if (!confirmChips.equalsIgnoreCase("Y")) {
+                            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                            System.out.println("Chips not added.\n");
+                            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                            break;
+                        }
                         myOrder.addChips(chips);
                         showLoadingSpinner(1500);
                         System.out.println("********************************");
@@ -96,7 +130,7 @@ public class HandleNewOrder {
                         if (myOrder.getSandwiches().isEmpty() && myOrder.getDrinks().isEmpty() && myOrder.getChips().isEmpty()) {
                             showLoadingSpinner(1500);
                             System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                            System.out.println(" You must add at least one item before checkout.");
+                            System.out.println(" You must add at least one item before checkout.\n");
                             System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                             showLoadingSpinner(1500);
 
@@ -110,7 +144,7 @@ public class HandleNewOrder {
                     case "0":
                         showLoadingSpinner(1600);
                         System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                        System.out.println("Order cancelled. See you next time!");
+                        System.out.println("Order cancelled. See you next time!\n");
                         System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                         showLoadingSpinner(1600);
                         running = false;
@@ -118,7 +152,7 @@ public class HandleNewOrder {
                     default:
                         showLoadingSpinner(1600);
                         System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                        System.out.println("Invalid option"); //how to save the item user giving me into one order object or class
+                        System.out.println("Invalid option\n"); //how to save the item user giving me into one order object or class
                         System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                         showLoadingSpinner(1600);
 

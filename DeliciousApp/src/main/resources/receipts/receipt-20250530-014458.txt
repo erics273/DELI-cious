@@ -1,0 +1,15 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+Sandwich Summary
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+Bread => white
+Size => 4
+Toasted => Yes
+
+Cheeses: american, Is Extra => false
+Toppings: lettuce, 
+Sauces: mayo, 
+Sides: au jus, 
+Total Price: $6.50
+Drink: coke (s)
+Chips: baked
+Total Order Price: $10.00

@@ -18,7 +18,7 @@ public class UserInterface {
 
         while (!exit) {
             System.out.println("\n===========================================");
-            System.out.println("    Welcome to DELI-cious Sandwich Shop! ");
+            System.out.println("    Welcome to DELI-cious Sandwich ! ");
             System.out.println("===========================================\n");
             waitForEnter();
             // Show loading spinner to simulate processing

@@ -14,12 +14,13 @@ public class Cheese {
     public Cheese(String size, String type, boolean isExtra) {
         this.size = size;
         this.type = type;
-        this.price = price;
         this.isExtra = isExtra;
+        this.price = getPrice();
     }
 
-    public Cheese(String type) {
+    public Cheese(String type,String size) {
         this.type = type;
+        this.size = size;
     }
 //generate getter and setter
 
@@ -36,7 +37,11 @@ public class Cheese {
     }
 
     private double getBasePrice() {
-        switch (size) {
+        if (size == null) {
+            System.out.println("Cheese size is null default base price => $0.00");
+            return 0.0;
+        }
+        switch(this.size) {
             case "4":
                 return 1.00;
             case "8":
@@ -50,7 +55,11 @@ public class Cheese {
 
     private double getExtraCharge() {
         if (!isExtra) return 0.0;
-        switch (size) {
+        if (this.size == null) {
+            System.out.println("Cheese size is null  default extra charge => $0.00");
+            return 0.0;
+        }
+        switch(this.size) {
             case "4":
                 return 0.50;
             case "8":

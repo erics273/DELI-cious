@@ -35,38 +35,6 @@ public class UiHelper {
         scanner.nextLine();
     }
 
-    //Method to assist with making the first letter of our string to capital to avoid error
-    public static String capitalizeFirstLetter(String input) {
-        if (input == null || input.isEmpty()) return input;
-        return input.substring(0, 1).toUpperCase() + input.substring(1).toLowerCase();
-    }
-
-    private String getValidatedSize(Scanner scanner) {
-        while (true) {
-            System.out.print("Enter the size you want (4/8/12): ");
-            String size = scanner.nextLine().trim();
-
-            if (size.equals("4") || size.equals("8") || size.equals("12")) {
-                return size;
-            }
-            System.out.println(" Invalid size. Please enter 4, 8, or 12.");
-        }
-    }
-
-    private boolean getValidatedToasted(Scanner scanner) {
-        while (true) {
-            System.out.print("Would you like it toasted? (yes/no): ");
-            String input = scanner.nextLine().trim().toLowerCase();
-
-            if (input.equals("yes")) return true;
-            if (input.equals("no")) return false;
-
-            System.out.println(" Invalid input. Please enter 'yes' or 'no'.");
-        }
-    }
-    //helper method to confirm the order summary and make sure if user want to continue or cancel
-    // Scanner help with user input check, and we are making sure it show sandwich
-    // This is a helper method to confirm if the user is happy with the sandwich so far.
    public static boolean confirmStep(Scanner scanner, Sandwich sandwich) {
 
         // Print the current summary of the sandwich (bread, meat, cheese, etc.)
@@ -74,8 +42,8 @@ public class UiHelper {
 
         // Ask the user if they like what they see.
        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-       System.out.print("Is this correct? Press \"Y\" to continue or anything else to cancel: ");
-       System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+       System.out.print("Is this correct? Press \"Y\" to continue or anything else to cancel! ");
+       System.out.println("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
 
        // Use the Scanner to read what the user types.
@@ -93,6 +61,36 @@ public class UiHelper {
            return false;
        }
         //if (!confirmStep(myScanner, sandwich)) return null;
+    }
+
+    public static String[] getValid(Scanner myScanner) {
+        String[] meats;
+        while (true) {
+            showLoadingSpinner(1000);
+            System.out.print("Enter meats - steak, ham, salami, roast beef, chicken, bacon (use comma please):\n");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+            String meatInput = myScanner.nextLine().trim().toLowerCase();
+            showLoadingSpinner(1000);
+
+            meats = meatInput.split(",");
+            boolean allValid = true;
+
+            for (String meat : meats) {
+                String m = meat.trim().toLowerCase();
+                if (!m.matches("(?i)steak|ham|salami|roast beef|chicken|bacon")) {
+                    System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    System.out.println("Invalid meat: '" + m + "'. Try again.\n");
+                    System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    allValid = false;
+                    break;
+                }
+            }
+
+            if (allValid) break;
+        }
+
+        return meats;
     }
 
 }
