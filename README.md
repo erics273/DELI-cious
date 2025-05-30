@@ -49,7 +49,7 @@ Add sauces (comma-separated), add sides (comma-separated), The sandwich will be 
 ## Screenshots
 (Optional: Add screenshots or GIFs here if you have them)
 ### Home Screen
-![Home Screen](Resources/videos_gif/homescreen-ezgif.com-video-to-gif-converter.mp4))
+![Home Screen](Resources/videos_gif/homescreen-ezgif.com-video-to-gif-converter.mp4)
 
 ### Order Screen
 
