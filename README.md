@@ -54,19 +54,38 @@ Add sauces (comma-separated), add sides (comma-separated), The sandwich will be 
 ### Order Screen
   *Add Sandwich 
 
+  
+![Console Flow](src/main/resources/images/console_flow.png)
+
   *Add Drinks
+
+  
+![Console Flow](src/main/resources/images/console_flow.png)
 
   *Add Chips
 
+  
+![Console Flow](src/main/resources/images/console_flow.png)
+
   *Checkout
 
+  
+![Console Flow](src/main/resources/images/console_flow.png)
 
-  Cancel Order
+
+  *Cancel Order
 
   
+![Console Flow](src/main/resources/images/console_flow.png)
+
+  *Diagrams
+  
+![Console Flow](src/main/resources/images/console_flow.png)
+
+![Sandwich Summary](src/main/resources/images/sandwich_summary.png)
 
 ![Console Flow](src/main/resources/images/console_flow.png)
-![Sandwich Summary](src/main/resources/images/sandwich_summary.png)
+
 
 ## Console Flow
 
