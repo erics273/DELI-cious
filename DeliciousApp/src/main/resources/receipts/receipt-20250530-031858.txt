@@ -1,0 +1,15 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+Sandwich Summary
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+Bread => white
+Size => 4
+Toasted => Yes
+Meats: meat type => steak, 4 inch size,  $1.5 priceIs Extra => true
+Cheeses: american, Is Extra => true
+Toppings: lettuce, peppers, 
+Sauces: mayo, 
+Sides: au jus, sauce, 
+Total Price: $8.50
+Drink: coke (s)
+Chips: baked
+Total Order Price: $12.00
