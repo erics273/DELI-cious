@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="18df9fba-89e7-491c-a9e4-41a07c9f3f03" name="Changes" comment="" />
+    <list default="true" id="18df9fba-89e7-491c-a9e4-41a07c9f3f03" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/videos_gif/addSandwich_cheese.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/videos_gif/home screen.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/videos_gif/orderCancel.mp4" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,9 +19,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Bilenie"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Bilenie/DELI-cious.git",
+    "accountId": "178fd4f4-7814-4416-8493-ab3179348dc9"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2xSlfKtn8vmSGe14oD4muo4SEDQ" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
@@ -23,7 +44,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Student/Pluralsight/LearnToCode_Capstones/DELI-cious"
+    "last_opened_file_path": "C:/Users/Student/Pluralsight/LearnToCode_Capstones/AccountingLedger"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
