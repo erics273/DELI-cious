@@ -1,5 +1,7 @@
 package com.pluralsight.util;
 
+import com.pluralsight.models.Sandwich;
+
 import java.util.Scanner;
 
 public class UiHelper {
@@ -33,33 +35,62 @@ public class UiHelper {
         scanner.nextLine();
     }
 
-    //Method to assist with making the first letter of our string to capital to avoid error
-    public static String capitalizeFirstLetter(String input) {
-        if (input == null || input.isEmpty()) return input;
-        return input.substring(0, 1).toUpperCase() + input.substring(1).toLowerCase();
+   public static boolean confirmStep(Scanner scanner, Sandwich sandwich) {
+
+        // Print the current summary of the sandwich (bread, meat, cheese, etc.)
+        System.out.println("\n" + sandwich.getSummary());
+
+        // Ask the user if they like what they see.
+       System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+       System.out.print("Is this correct? Press \"Y\" to continue or anything else to cancel! ");
+       System.out.println("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+
+       // Use the Scanner to read what the user types.
+        String input = scanner.nextLine();
+       // Check if the user typed "Y" (yes)
+       if (input.equalsIgnoreCase("Y")) {
+           return true; // They confirmed, continue with the order
+       } else {
+           // They typed something else — cancel it
+
+           System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+           System.out.println(       "Order canceled.");
+           System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+
+           return false;
+       }
+        //if (!confirmStep(myScanner, sandwich)) return null;
     }
 
-    private String getValidatedSize(Scanner scanner) {
+    public static String[] getValid(Scanner myScanner) {
+        String[] meats;
         while (true) {
-            System.out.print("Enter the size you want (4/8/12): ");
-            String size = scanner.nextLine().trim();
+            showLoadingSpinner(1000);
+            System.out.print("Enter meats - steak, ham, salami, roast beef, chicken, bacon (use comma please):\n");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-            if (size.equals("4") || size.equals("8") || size.equals("12")) {
-                return size;
+            String meatInput = myScanner.nextLine().trim().toLowerCase();
+            showLoadingSpinner(1000);
+
+            meats = meatInput.split(",");
+            boolean allValid = true;
+
+            for (String meat : meats) {
+                String m = meat.trim().toLowerCase();
+                if (!m.matches("(?i)steak|ham|salami|roast beef|chicken|bacon")) {
+                    System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    System.out.println("Invalid meat: '" + m + "'. Try again.\n");
+                    System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    allValid = false;
+                    break;
+                }
             }
-            System.out.println(" Invalid size. Please enter 4, 8, or 12.");
+
+            if (allValid) break;
         }
+
+        return meats;
     }
 
-    private boolean getValidatedToasted(Scanner scanner) {
-        while (true) {
-            System.out.print("Would you like it toasted? (yes/no): ");
-            String input = scanner.nextLine().trim().toLowerCase();
-
-            if (input.equals("yes")) return true;
-            if (input.equals("no")) return false;
-
-            System.out.println(" Invalid input. Please enter 'yes' or 'no'.");
-        }
-    }
 }

@@ -117,25 +117,29 @@ public class Sandwich implements OrderItem{
         StringBuilder summary = new StringBuilder();//word collecting basket
 
         // Start with a header
-        summary.append("Sandwich Summary:\n");//add to it by using append
+        System.out.println();
+        summary.append("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n").append(  "Sandwich Summary").append("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");//add to it by using append
+
+
 
         // Add bread type, size, and toast preference
-        summary.append("Bread: " + breadType + "\n");
-        summary.append("Size: " + size + "\n");
-        summary.append("Toasted: " + (isToasted ? "Yes" : "No") + "\n");
+        summary.append("\nBread => " + breadType + "\n");
+        summary.append("Size => " + size + "\n");
+        summary.append("Toasted => " + (isToasted ? "Yes" : "No") + "\n");
 
 
         // List all meats in the sandwich
       if(!meats.isEmpty()) {
           summary.append("Meats: ");
           for (Meat m : meats)
-              summary.append(m.getType() + ", ");
+              summary.append("meat type => " + m.getType() + ", " +m.getSize() + " inch size" +
+                      ",  $" + m.getPrice() + " price" + "Is Extra => "+ m.isExtra());
       }
         // List all cheeses in the sandwich
         if(!cheeses.isEmpty()) {
             summary.append("\nCheeses: ");
             for (Cheese c : cheeses)
-                summary.append(c.getType() + ", ");
+                summary.append(c.getType() + ", " + "Is Extra => "+ c.isExtra());
         }
 
         // List all regular  toppings
