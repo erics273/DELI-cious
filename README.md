@@ -55,7 +55,7 @@ Add sauces (comma-separated), add sides (comma-separated), The sandwich will be 
 
   *Add Drinks/*Add Chips
 
-![Order Drink,Checkout and Chips](src/main/Resources/videos_gif/addChipsDrinkCheckout-ezgif.com-video-to-gif-converter.gif)
+![Order Drink,Checkout and Chips](./src/main/Resources/videos_gif/addChipsDrinkCheckout-ezgif.com-video-to-gif-converter.gif)
 
   *Add Sauce
 
